@@ -63,4 +63,10 @@ class ProdukController extends Controller
 
         return redirect()->route('admin.produk')->with('success', 'Produk berhasil dihapus.');
     }
+
+    public function show($id)
+    {
+        $produk = Produk::findOrFail($id);
+        return view('admin.produk-show', compact('produk'));
+    }
 }

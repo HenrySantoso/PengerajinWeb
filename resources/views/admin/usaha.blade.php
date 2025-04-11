@@ -33,6 +33,8 @@
     }
 </style>
 
+<a href="{{ route('admin.usaha-create') }}" class="btn btn-success">+ Tambah Pengerajin</a>
+
 <table>
     <thead>
         <tr>

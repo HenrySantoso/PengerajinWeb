@@ -24,7 +24,8 @@ class PengerajinController extends Controller
 
     public function editPengerajin($id)
     {
-        return view('admin.pengerajin-edit', compact('id'));
+        $pengerajin = Pengerajin::findOrFail($id);
+        return view('admin.pengerajin-edit', compact('pengerajin'));
     }
 
     public function storePengerajin(Request $request)
@@ -41,19 +42,19 @@ class PengerajinController extends Controller
         return redirect()->route('admin.pengerajin')->with('success', 'Pengerajin berhasil ditambahkan.');
     }
 
-    public function update(Request $request, $id)
+    public function updatePengerajin(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
+        $data = $request->validate([
+            'nama_pengerajin' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'email' => 'required|email',
+            'no_telp' => 'required|string',
         ]);
 
-        $pengerajin = Pengerajin::findOrFail($id);
-        $pengerajin->update($request->all());
+        Pengerajin::where('id', $id)->update($data);
 
-        return redirect()->route('admin.pengerajin')->with('success', 'Pengerajin berhasil diperbarui.');
+        return redirect()->route('admin.pengerajin')
+            ->with('success', 'Data Pengerajin berhasil diupdate.');
     }
 
     public function destroy($id)

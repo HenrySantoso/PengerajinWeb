@@ -33,6 +33,8 @@
     }
 </style>
 
+<a href="{{ route('admin.produk-create') }}" class="btn btn-success">+ Tambah Produk</a>
+
 <table>
     <thead>
         <tr>
