@@ -3,7 +3,7 @@
 @section('title', 'Usaha')
 
 @section('content_header')
-    <h1>Pengerajin</h1>
+    <h1>Data Usaha</h1>
 @stop
 
 @section('content')
@@ -33,18 +33,29 @@
     }
 </style>
 
-<a href="{{ route('admin.usaha-create') }}" class="btn btn-success">+ Tambah Pengerajin</a>
+<a href="{{ route('admin.usaha-create') }}" class="btn btn-success">+ Tambah Usaha</a>
 
 <table>
     <thead>
         <tr>
             <th>Nama Usaha</th>
+            <th>Jenis Usaha</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach($usahas as $usaha)
             <tr>
                 <td>{{ $usaha->nama_usaha }}</td>
+                <td>{{ $usaha->jenis_usaha }}</td>
+                <td>
+                    <a href="{{ route('admin.usaha-edit', $usaha->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('admin.usaha-destroy', $usaha->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </tbody>

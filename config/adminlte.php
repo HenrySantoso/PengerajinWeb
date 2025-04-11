@@ -392,6 +392,7 @@ return [
             'icon_color' => 'cyan',
             'url' => '#',
         ],
+        ['header' => 'MASTER DATA'],
         [
             'text' => 'Dashboard',
             'url'  => 'admin/dashboard',

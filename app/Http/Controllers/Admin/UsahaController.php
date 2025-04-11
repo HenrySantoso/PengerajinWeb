@@ -17,23 +17,22 @@ class UsahaController extends Controller
         ]);
     }
 
-    public function createUsaha()
+    public function create()
     {
         return view('admin.usaha-create');
     }
 
     public function edit($id)
     {
-        return view('admin.usaha.edit', compact('id'));
+        $usaha = Usaha::findOrFail($id);
+        return view('admin.usaha-edit', compact('usaha'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'location' => 'required|string',
-            'owner' => 'required|string',
+            'nama_usaha' => 'required|string',
+            'jenis_usaha' => 'required|string',
         ]);
 
         Usaha::create($request->all());
@@ -44,10 +43,8 @@ class UsahaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'location' => 'required|string',
-            'owner' => 'required|string',
+            'nama_usaha' => 'required|string',
+            'jenis_usaha' => 'required|string',
         ]);
 
         $usaha = Usaha::findOrFail($id);

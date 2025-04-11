@@ -3,7 +3,7 @@
 @section('title', 'Produk')
 
 @section('content_header')
-    <h1>Produk</h1>
+    <h1>Data Produk</h1>
 @stop
 
 @section('content')
@@ -40,6 +40,10 @@
         <tr>
             <th>Nama Produk</th>
             <th>Deskripsi</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Gambar</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -47,6 +51,17 @@
             <tr>
                 <td>{{ $produk->nama_produk }}</td>
                 <td>{{ $produk->deskripsi }}</td>
+                <td>{{ $produk->harga }}</td>
+                <td>{{ $produk->stok }}</td>
+                <td><img src="{{ asset('storage/gambar_produk/'.$produk->gambar) }}" width="100"></td>
+                <td>
+                    <a href="{{ route('admin.produk-edit', $produk->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('admin.produk-destroy', $produk->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </tbody>
@@ -60,5 +75,5 @@
 
 @section('js')
     <!-- Tambahkan custom JS di sini jika perlu -->
-    <script> console.log("Pengerajin loaded"); </script>
+    <script> console.log("Produk loaded"); </script>
 @stop

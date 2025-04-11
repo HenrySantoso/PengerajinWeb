@@ -3,35 +3,23 @@
 @section('title', 'Create Data Pengerajin')
 
 @section('content_header')
-    <h1>Create Data Pengerajin</h1>
+    <h1>Create Data Usaha</h1>
 @stop
 
 @section('content')
 <div class="container">
-    <form action="{{ route('admin.pengerajin-store') }}" method="POST" id="createPengerajinForm">
+    <form action="{{ route('admin.usaha-store') }}" method="POST" id="createUsahaForm">
         @csrf
-        <!-- Nama Pengerajin -->
+        <!-- Nama usaha -->
         <div class="mb-3">
-            <label for="nama_pengerajin" class="form-label">Nama Pengerajin</label>
-            <input type="text" class="form-control" id="nama_pengerajin" name="nama_pengerajin" placeholder="Masukkan Nama Pengerajin" required>
+            <label for="nama_usaha" class="form-label">Nama Usaha</label>
+            <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" placeholder="Masukkan Nama Usaha" required>
         </div>
 
-        <!-- Alamat -->
+        <!-- Jenis Usaha-->
         <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat" required></textarea>
-        </div>
-
-        <!-- Email -->
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" required>
-        </div>
-
-        <!-- No Telepon -->
-        <div class="mb-3">
-            <label for="no_telp" class="form-label">No Telepon</label>
-            <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="Masukkan Nomor Telepon" required>
+            <label for="jenis_usaha" class="form-label">Jenis Usaha</label>
+            <input type="jenis_usaha" class="form-control" id="jenis_usaha" name="jenis_usaha" placeholder="Masukkan Jenis Usaha" required>
         </div>
 
         <!-- Tombol Submit -->
@@ -48,17 +36,17 @@
 @section('js')
     <!-- Validasi form sederhana dengan JavaScript -->
     <script>
-        document.getElementById('createPengerajinForm').addEventListener('submit', function(e) {
+        document.getElementById('createUsahaForm').addEventListener('submit', function(e) {
             // Contoh validasi dasar: memastikan nama tidak kosong
-            const nama = document.getElementById('nama_pengerajin').value.trim();
+            const nama = document.getElementById('nama_usaha').value.trim();
             if (nama === '') {
-                alert('Nama Pengerajin wajib diisi!');
+                alert('Nama Usaha wajib diisi!');
                 e.preventDefault();
                 return false;
             }
             // Validasi lainnya bisa ditambahkan di sini jika diperlukan
         });
 
-        console.log("Form Create Pengerajin loaded");
+        console.log("Form Create Usaha loaded");
     </script>
 @stop
