@@ -1,0 +1,62 @@
+@extends('adminlte::page')
+
+@section('title', 'Produk')
+
+@section('content_header')
+    <h1>Produk</h1>
+@stop
+
+@section('content')
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f4f4f4;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #eef;
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nama Produk</th>
+            <th>Deskripsi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($produks as $produk)
+            <tr>
+                <td>{{ $produk->nama_produk }}</td>
+                <td>{{ $produk->deskripsi }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+@stop
+
+@section('css')
+    <!-- Tambahkan custom CSS di sini jika perlu -->
+    <link rel="stylesheet" href="/css/custom.css">
+@stop
+
+@section('js')
+    <!-- Tambahkan custom JS di sini jika perlu -->
+    <script> console.log("Pengerajin loaded"); </script>
+@stop
