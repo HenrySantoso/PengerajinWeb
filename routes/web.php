@@ -1,17 +1,23 @@
 <?php
 
+use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PengerajinController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\UsahaController;
-use App\Http\Controllers\Admin\Controller;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Guest\HomeController;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
+
+// Auth::routes();
 Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 // Pengerajin
@@ -38,4 +44,10 @@ Route::get('admin/usaha/edit/{id}', [UsahaController::class, 'edit'])->name('adm
 Route::put('admin/usaha/update/{id}', [UsahaController::class, 'update'])->name('admin.usaha-update');
 Route::delete('admin/usaha/destroy/{id}', [UsahaController::class, 'destroy'])->name('admin.usaha-destroy');
 
+//Guest
+Route::get('', [PageController::class, 'index'])->name('guest.index');
+Route::get('about', [PageController::class, 'about'])->name('guest.about');
+Route::get('contact', [PageController::class, 'contact'])->name('guest.contact');
+Route::get('product', [PageController::class, 'products'])->name('guest.products');
+Route::get('single-product', [PageController::class, 'singleProduct'])->name('guest.single-product');
 
