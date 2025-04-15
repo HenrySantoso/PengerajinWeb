@@ -13,20 +13,20 @@ class ProdukController extends Controller
     {
         $dataProduk = Produk::all(); // atau bisa juga pakai paginate()
 
-        return view('admin.produk', [
+        return view('admin.produk.index-produk', [
             'produks' => $dataProduk
         ]);
     }
 
     public function create()
     {
-        return view('admin.produk-create');
+        return view('admin.produk.create-produk');
     }
 
     public function edit($id)
     {
         $produk = Produk::findOrFail($id);
-        return view('admin.produk-edit', compact('produk'));
+        return view('admin.produk.edit-produk', compact('produk'));
     }
 
     public function store(Request $request)
@@ -55,7 +55,7 @@ class ProdukController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.produk')->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()->route('admin.produk-index')->with('success', 'Produk berhasil ditambahkan.');
     }
 
     public function update(Request $request, $id)
@@ -90,7 +90,7 @@ class ProdukController extends Controller
 
         $produk->save();
 
-        return redirect()->route('admin.produk')->with('success', 'Data produk berhasil diperbarui.');
+        return redirect()->route('admin.produk-index')->with('success', 'Data produk berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -110,7 +110,7 @@ class ProdukController extends Controller
         // Hapus data produk dari database
         $produk->delete();
 
-        return redirect()->route('admin.produk')->with('success', 'Produk berhasil dihapus.');
+        return redirect()->route('admin.produk-index')->with('success', 'Produk berhasil dihapus.');
     }
 
     public function show($id)

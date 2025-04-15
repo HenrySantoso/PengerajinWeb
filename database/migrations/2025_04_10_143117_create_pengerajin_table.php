@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pengerajin', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_pengerajin')->unique();
             $table->string('nama_pengerajin')->nullable();
             $table->string('alamat')->nullable();
             $table->string('no_telp')->nullable();

@@ -11,7 +11,6 @@ class PageController extends Controller
     {
         return view('guest.index');
     }
-
     public function about()
     {
         return view('guest.about');

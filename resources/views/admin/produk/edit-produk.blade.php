@@ -51,7 +51,7 @@
 
             <!-- Tombol Submit -->
             <button type="submit" class="btn btn-primary">Update Data</button>
-            <a href="{{ route('admin.produk') }}" class="btn btn-secondary">Batal</a>
+            <a href="{{ route('admin.produk-index') }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
 @stop

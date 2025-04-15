@@ -7,29 +7,29 @@ use App\Http\Controllers\Admin\PengerajinController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\UsahaController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Guest\HomeController;
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
+// Authentication Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
-// Auth::routes();
+// Dashboard
 Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 // Pengerajin
-Route::get('admin/pengerajin', [PengerajinController::class, 'index'])->name('admin.pengerajin');
-Route::get('admin/pengerajin/create', [PengerajinController::class, 'createPengerajin'])->name('admin.pengerajin-create');
-Route::post('admin/pengerajin/store', [PengerajinController::class, 'storePengerajin'])->name('admin.pengerajin-store');
-Route::get('admin/pengerajin/edit/{id}', [PengerajinController::class, 'editPengerajin'])->name('admin.pengerajin-edit');
-Route::put('admin/pengerajin/update/{id}', [PengerajinController::class, 'updatePengerajin'])->name('admin.pengerajin-update');
+Route::get('admin/pengerajin', [PengerajinController::class, 'index'])->name('admin.pengerajin-index');
+Route::get('admin/pengerajin/create', [PengerajinController::class, 'create'])->name('admin.pengerajin-create');
+Route::post('admin/pengerajin/store', [PengerajinController::class, 'store'])->name('admin.pengerajin-store');
+Route::get('admin/pengerajin/edit/{id}', [PengerajinController::class, 'edit'])->name('admin.pengerajin-edit');
+Route::put('admin/pengerajin/update/{id}', [PengerajinController::class, 'update'])->name('admin.pengerajin-update');
 Route::delete('admin/pengerajin/destroy/{id}', [PengerajinController::class, 'destroy'])->name('admin.pengerajin-destroy');
 
 // Produk
-Route::get('admin/produk', [ProdukController::class, 'index'])->name('admin.produk');
+Route::get('admin/produk', [ProdukController::class, 'index'])->name('admin.produk-index');
 Route::get('admin/produk/create', [ProdukController::class, 'create'])->name('admin.produk-create');
 Route::post('admin/produk/store', [ProdukController::class, 'store'])->name('admin.produk-store');
 Route::get('admin/produk/edit/{id}', [ProdukController::class, 'edit'])->name('admin.produk-edit');
@@ -37,7 +37,7 @@ Route::put('admin/produk/update/{id}', [ProdukController::class, 'update'])->nam
 Route::delete('admin/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('admin.produk-destroy');
 
 // Usaha
-Route::get('admin/usaha', [UsahaController::class, 'index'])->name('admin.usaha');
+Route::get('admin/usaha', [UsahaController::class, 'index'])->name('admin.usaha-index');
 Route::get('admin/usaha/create', [UsahaController::class, 'create'])->name('admin.usaha-create');
 Route::post('admin/usaha/store', [UsahaController::class, 'store'])->name('admin.usaha-store');
 Route::get('admin/usaha/edit/{id}', [UsahaController::class, 'edit'])->name('admin.usaha-edit');

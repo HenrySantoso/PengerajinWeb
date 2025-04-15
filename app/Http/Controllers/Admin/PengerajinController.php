@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Pengerajin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,23 +11,23 @@ class PengerajinController extends Controller
     {
         $dataPengerajin = Pengerajin::all(); // atau bisa juga pakai paginate()
 
-        return view('admin.pengerajin', [
+        return view('admin.pengerajin.index-pengerajin', [
             'pengerajins' => $dataPengerajin
         ]);
     }
 
-    public function createPengerajin()
+    public function create()
     {
-        return view('admin.pengerajin-create');
+        return view('admin.pengerajin.create-pengerajin');
     }
 
-    public function editPengerajin($id)
+    public function edit($id)
     {
         $pengerajin = Pengerajin::findOrFail($id);
-        return view('admin.pengerajin-edit', compact('pengerajin'));
+        return view('admin.pengerajin.edit-pengerajin', compact('pengerajin'));
     }
 
-    public function storePengerajin(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'nama_pengerajin' => 'required|string|max:255',
@@ -39,10 +38,10 @@ class PengerajinController extends Controller
 
         Pengerajin::create($request->all());
 
-        return redirect()->route('admin.pengerajin')->with('success', 'Pengerajin berhasil ditambahkan.');
+        return redirect()->route('admin.pengerajin-index')->with('success', 'Pengerajin berhasil ditambahkan.');
     }
 
-    public function updatePengerajin(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->validate([
             'nama_pengerajin' => 'required|string|max:255',
@@ -53,7 +52,7 @@ class PengerajinController extends Controller
 
         Pengerajin::where('id', $id)->update($data);
 
-        return redirect()->route('admin.pengerajin')
+        return redirect()->route('admin.pengerajin-index')
             ->with('success', 'Data Pengerajin berhasil diupdate.');
     }
 
@@ -62,7 +61,7 @@ class PengerajinController extends Controller
         $pengerajin = Pengerajin::findOrFail($id);
         $pengerajin->delete();
 
-        return redirect()->route('admin.pengerajin')->with('success', 'Pengerajin berhasil dihapus.');
+        return redirect()->route('admin.pengerajin-index')->with('success', 'Pengerajin berhasil dihapus.');
     }
 
     public function show($id)

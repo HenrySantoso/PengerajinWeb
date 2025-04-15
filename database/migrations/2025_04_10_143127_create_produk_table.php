@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_produk')->unique();
             $table->string('nama_produk')->nullable();
             $table->string('deskripsi')->nullable();
             $table->string('kategori')->nullable();

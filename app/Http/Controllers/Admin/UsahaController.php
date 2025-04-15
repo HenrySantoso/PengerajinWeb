@@ -12,20 +12,20 @@ class UsahaController extends Controller
     {
         $dataUsaha = Usaha::all(); // atau bisa juga pakai paginate()
 
-        return view('admin.usaha', [
+        return view('admin.usaha.index-usaha', [
             'usahas' => $dataUsaha
         ]);
     }
 
     public function create()
     {
-        return view('admin.usaha-create');
+        return view('admin.usaha.create-usaha');
     }
 
     public function edit($id)
     {
         $usaha = Usaha::findOrFail($id);
-        return view('admin.usaha-edit', compact('usaha'));
+        return view('admin.usaha.edit-usaha', compact('usaha'));
     }
 
     public function store(Request $request)
@@ -37,7 +37,7 @@ class UsahaController extends Controller
 
         Usaha::create($request->all());
 
-        return redirect()->route('admin.usaha')->with('success', 'Usaha berhasil ditambahkan.');
+        return redirect()->route('admin.usaha-index')->with('success', 'Usaha berhasil ditambahkan.');
     }
 
     public function update(Request $request, $id)
@@ -50,7 +50,7 @@ class UsahaController extends Controller
         $usaha = Usaha::findOrFail($id);
         $usaha->update($request->all());
 
-        return redirect()->route('admin.usaha')->with('success', 'Usaha berhasil diperbarui.');
+        return redirect()->route('admin.usaha-index')->with('success', 'Usaha berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -58,7 +58,7 @@ class UsahaController extends Controller
         $usaha = Usaha::findOrFail($id);
         $usaha->delete();
 
-        return redirect()->route('admin.usaha')->with('success', 'Usaha berhasil dihapus.');
+        return redirect()->route('admin.usaha-index')->with('success', 'Usaha berhasil dihapus.');
     }
 
     public function show($id)

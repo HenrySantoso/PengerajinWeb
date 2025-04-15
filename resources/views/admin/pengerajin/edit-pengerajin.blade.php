@@ -42,7 +42,7 @@
 
             <!-- Tombol Submit -->
             <button type="submit" class="btn btn-primary">Update Data</button>
-            <a href="{{ route('admin.pengerajin') }}" class="btn btn-secondary">Batal</a>
+            <a href="{{ route('admin.pengerajin-index') }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
 @stop
