@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('admin.jenis_usaha-update', $usaha->id) }}" method="POST" id="editJenisUsahaForm">
+        <form action="{{ route('admin.jenis_usaha-update', $jenisUsaha->id) }}" method="POST" id="editJenisUsahaForm">
             @csrf
             @method('PUT')
 
@@ -17,14 +17,14 @@
             <div class="form-group mb-3">
                 <label for="kode_jenis_usaha">Kode jenis usaha</label>
                 <input type="text" class="form-control" id="kode_jenis_usaha" name="kode_jenis_usaha"
-                    value="{{ old('kode_jenis_usaha', $usaha->kode_jenis_usaha) }}" required>
+                    value="{{ old('kode_jenis_usaha', $jenisUsaha->kode_jenis_usaha) }}" required>
             </div>
 
             <!-- Nama Jenis Usaha -->
             <div class="form-group mb-3">
                 <label for="nama_jenis_usaha">Nama Jenis Usaha</label>
                 <input type="text" class="form-control" id="nama_jenis_usaha" name="nama_jenis_usaha"
-                    value="{{ old('nama_jenis_usaha', $usaha->nama_jenis_usaha) }}" required>
+                    value="{{ old('nama_jenis_usaha', $jenisUsaha->nama_jenis_usaha) }}" required>
             </div>
 
             <!-- Tombol Submit -->

@@ -44,13 +44,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($usahas as $usaha)
+        @foreach($jenisUsahas as $jenisUsaha)
             <tr>
-                <td>{{ $usaha->kode_jenis_usaha }}</td>
-                <td>{{ $usaha->nama_jenis_usaha }}</td>
+                <td>{{ $jenisUsaha->kode_jenis_usaha }}</td>
+                <td>{{ $jenisUsaha->nama_jenis_usaha }}</td>
                 <td>
-                    <a href="{{ route('admin.jenis_usaha-edit', $usaha->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('admin.jenis_usaha-destroy', $usaha->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('admin.jenis_usaha-edit', $jenisUsaha->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('admin.jenis_usaha-destroy', $jenisUsaha->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
