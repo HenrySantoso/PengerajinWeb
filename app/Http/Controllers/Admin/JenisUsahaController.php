@@ -48,25 +48,27 @@ class JenisUsahaController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi dan update data jenis usaha
-        $request->validate([
+        $data = $request->validate([
             'kode_jenis_usaha' => 'required|string|max:255',
             'nama_jenis_usaha' => 'required|string|max:255',
         ]);
 
         // Update data ke database
-        JenisUsaha::where('id', $id)->update($request->only(['kode_jenis_usaha', 'nama_jenis_usaha']));
+        //JenisUsaha::where('id', $id)->update($request->only(['kode_jenis_usaha', 'nama_jenis_usaha']));
         // Atau bisa juga menggunakan findOrFail
         // $jenisUsaha = JenisUsaha::findOrFail($id);
         // $jenisUsaha->update($request->all());
         // Jika menggunakan findOrFail, jangan lupa untuk meng-import model JenisUsaha
+
+        JenisUsaha::where('id', $id)->update($data);
 
         return redirect()->route('admin.jenis_usaha-index')->with('success', 'Jenis Usaha berhasil diupdate.');
     }
 
     public function destroy($id)
     {
-        // Hapus data jenis usaha
-        JenisUsaha::destroy($id);
+        $jenisUsaha = JenisUsaha::findOrFail($id);
+        $jenisUsaha->delete();
 
         return redirect()->route('admin.jenis_usaha-index')->with('success', 'Jenis Usaha berhasil dihapus.');
     }

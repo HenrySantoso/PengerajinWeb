@@ -12,6 +12,12 @@
         <form action="{{ route('admin.pengerajin-update', $pengerajin->id) }}" method="POST" id="editPengerajinForm">
             @csrf
             @method('PUT')
+            <!-- Kode Pengerajin -->
+            <div class="form-group">
+                <label for="kode_pengerajin">Kode Pengerajin</label>
+                <input type="text" class="form-control" id="kode_pengerajin" name="kode_pengerajin"
+                    value="{{ old('kode_pengerajin', $pengerajin->kode_pengerajin) }}" required>
+            </div>
 
             <!-- Nama Pengerajin -->
             <div class="form-group mb-3">

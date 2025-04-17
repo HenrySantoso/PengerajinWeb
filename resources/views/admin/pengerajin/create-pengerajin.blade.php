@@ -10,6 +10,12 @@
 <div class="container">
     <form action="{{ route('admin.pengerajin-store') }}" method="POST" id="createPengerajinForm">
         @csrf
+        <!-- Kode Pengerajin -->
+        <div class="form-group">
+            <label for="kode_pengerajin">Kode Pengerajin</label>
+            <input type="text" class="form-control" id="kode_pengerajin" name="kode_pengerajin" placeholder="Masukkan Kode Pengerajin" required>
+        </div>
+
         <!-- Nama Pengerajin -->
         <div class="mb-3">
             <label for="nama_pengerajin" class="form-label">Nama Pengerajin</label>

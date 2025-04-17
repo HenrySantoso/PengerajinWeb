@@ -52,7 +52,8 @@
 <table>
     <thead>
         <tr>
-            <th>Nama</th>
+            <th>Kode Pengerajin</th>
+            <th>Nama Pengerajin</th>
             <th>Alamat</th>
             <th>Email</th>
             <th>No Telepon</th>
@@ -62,6 +63,7 @@
     <tbody>
         @foreach($pengerajins as $pengerajin)
             <tr>
+                <td>{{ $pengerajin->kode_pengerajin }}</td>
                 <td>{{ $pengerajin->nama_pengerajin }}</td>
                 <td>{{ $pengerajin->alamat }}</td>
                 <td>{{ $pengerajin->email }}</td>

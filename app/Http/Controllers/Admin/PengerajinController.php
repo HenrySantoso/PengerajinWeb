@@ -30,12 +30,14 @@ class PengerajinController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'kode_pengerajin' => 'required|string|max:255',
             'nama_pengerajin' => 'required|string|max:255',
             'alamat' => 'required|string',
             'email' => 'required|string',
             'no_telp' => 'required|string',
         ]);
 
+        // Simpan data ke database
         Pengerajin::create($request->all());
 
         return redirect()->route('admin.pengerajin-index')->with('success', 'Pengerajin berhasil ditambahkan.');
@@ -44,6 +46,7 @@ class PengerajinController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
+            'kode_pengerajin' => 'required|string|max:255',
             'nama_pengerajin' => 'required|string|max:255',
             'alamat' => 'required|string',
             'email' => 'required|email',
@@ -62,11 +65,5 @@ class PengerajinController extends Controller
         $pengerajin->delete();
 
         return redirect()->route('admin.pengerajin-index')->with('success', 'Pengerajin berhasil dihapus.');
-    }
-
-    public function show($id)
-    {
-        $pengerajin = Pengerajin::findOrFail($id);
-        return view('admin.pengerajin-show', compact('pengerajin'));
     }
 }
