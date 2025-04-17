@@ -9,9 +9,16 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('admin.produk-update', $produk->id) }}" method="POST" id="editProdukForm" enctype="multipart/form-data">
+        <form action="{{ route('admin.produk-update', $produk->id) }}" method="POST" id="editProdukForm"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            <!-- Kode produk -->
+            <div class="form-group mb-3">
+                <label for="kode_produk">Kode produk</label>
+                <input type="text" class="form-control" id="kode_produk" name="kode_produk"
+                    value="{{ old('kode_produk', $produk->kode_produk) }}" required>
+            </div>
 
             <!-- Nama produk -->
             <div class="form-group mb-3">
@@ -23,7 +30,8 @@
             <!-- Deskripsi -->
             <div class="form-group mb-3">
                 <label for="deskripsi">Deskripsi</label>
-                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required>{{ old('deskripsi', $produk->deskripsi) }}</textarea>
+                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required>
+                    {{ old('deskripsi', $produk->deskripsi) }}</textarea>
             </div>
 
             <!-- Harga -->
@@ -38,15 +46,6 @@
                 <label for="stok">Stok</label>
                 <input type="number" class="form-control" id="stok" name="stok"
                     value="{{ old('stok', $produk->stok) }}" required>
-            </div>
-
-            <!-- Gambar -->
-            <div class="form-group mb-3">
-                <label for="gambar">Gambar</label>
-                <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*">
-                @if ($produk->gambar)
-                    <img src="{{ asset('storage/gambar_produk/' . $produk->gambar) }}" width="100" class="mt-2">
-                @endif
             </div>
 
             <!-- Tombol Submit -->
@@ -65,9 +64,33 @@
     <script>
         // Contoh validasi sederhana sebelum submit
         document.getElementById('editProdukForm').addEventListener('submit', function(e) {
+            const kode = document.getElementById('kode_produk').value.trim();
+            if (!kode) {
+                alert('Kode produk tidak boleh kosong!');
+                e.preventDefault();
+            }
+
             const nama = document.getElementById('nama_produk').value.trim();
             if (!nama) {
                 alert('Nama produk tidak boleh kosong!');
+                e.preventDefault();
+            }
+
+            const deskripsi = document.getElementById('deskripsi').value.trim();
+            if (!deskripsi) {
+                alert('Deskripsi tidak boleh kosong!');
+                e.preventDefault();
+            }
+
+            const harga = document.getElementById('harga').value.trim();
+            if (!harga) {
+                alert('Harga tidak boleh kosong!');
+                e.preventDefault();
+            }
+
+            const stok = document.getElementById('stok').value.trim();
+            if (!stok) {
+                alert('Stok tidak boleh kosong!');
                 e.preventDefault();
             }
         });

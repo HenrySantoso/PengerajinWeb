@@ -11,10 +11,10 @@ class KategoriProdukController extends Controller
     public function index()
     {
         // Mengambil semua data kategori produk dari database
-        $kategoriProduks = KategoriProduk::all(); // atau bisa juga pakai paginate()
+        $kategoriProduk = KategoriProduk::all(); // atau bisa juga pakai paginate()
         // Mengirim data ke view
         return view('admin.kategori_produk.index-kategori_produk', [
-            'kategoriProduks' => $kategoriProduks
+            'kategoriProduks' => $kategoriProduk
         ]);
     }
 

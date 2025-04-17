@@ -10,6 +10,12 @@
 <div class="container">
     <form action="{{ route('admin.produk-store') }}" method="POST" id="createProdukForm" enctype="multipart/form-data">
         @csrf
+        <!-- Kode Produk -->
+        <div class="form-group">
+            <label for="kode_produk">Kode Produk</label>
+            <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" required>
+        </div>
+
         <!-- Nama Produk -->
         <div class="mb-3">
             <label for="nama_produk" class="form-label">Nama Produk</label>
@@ -19,7 +25,7 @@
         <!-- Deskripsi -->
         <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi</label>
-            <input type="text" class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi Produk" required>
+            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan Deskripsi Produk" required></textarea>
         </div>
 
         <!-- Harga -->
@@ -32,12 +38,6 @@
         <div class="mb-3">
             <label for="stok" class="form-label">Stok</label>
             <input type="number" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok Produk" required>
-        </div>
-
-        <!-- Gambar -->
-        <div class="mb-3">
-            <label for="gambar" class="form-label">Gambar</label>
-            <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" required>
         </div>
 
         <!-- Tombol Submit -->
@@ -55,6 +55,13 @@
     <!-- Validasi form sederhana dengan JavaScript -->
     <script>
         document.getElementById('createProdukForm').addEventListener('submit', function(e) {
+            // Contoh validasi dasar: memastikan kode tidak kosong
+            if (document.getElementById('kode_produk').value.trim() === '') {
+                alert('Kode Produk wajib diisi!');
+                e.preventDefault();
+                return false;
+            }
+
             // Contoh validasi dasar: memastikan nama tidak kosong
             const nama = document.getElementById('nama_produk').value.trim();
             if (nama === '') {
@@ -65,6 +72,6 @@
             // Validasi lainnya bisa ditambahkan di sini jika diperlukan
         });
 
-        console.log("Form Create Pengerajin loaded");
+        console.log("Form Create Produk loaded");
     </script>
 @stop
