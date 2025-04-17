@@ -64,10 +64,10 @@ https://templatemo.com/tm-571-hexashop
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="about">About Us</a></li>
+                                    <li><a href="product">Products</a></li>
+                                    <li><a href="single-product">Single Product</a></li>
+                                    <li><a href="contact">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">

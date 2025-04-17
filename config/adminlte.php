@@ -396,22 +396,37 @@ return [
         [
             'text' => 'Dashboard',
             'url'  => 'admin/dashboard',
-            'icon' => 'fas fa-tachometer-alt',
+            'icon' => 'fas fa-tachometer-alt', // tetap
         ],
         [
             'text' => 'Pengerajin',
             'url'  => 'admin/pengerajin',
-            'icon' => 'fas fa-tachometer-alt',
+            'icon' => 'fas fa-users-cog', // ikon untuk pekerja atau pengelola
+        ],
+        [
+            'text' => 'Jenis Usaha',
+            'url'  => 'admin/jenis-usaha',
+            'icon' => 'fas fa-layer-group', // ikon untuk kategori/jenis
         ],
         [
             'text' => 'Usaha',
             'url'  => 'admin/usaha',
-            'icon' => 'fas fa-tachometer-alt',
+            'icon' => 'fas fa-briefcase', // ikon untuk usaha/bisnis
+        ],
+        [
+            'text' => 'Kategori Produk',
+            'url'  => 'admin/kategori-produk',
+            'icon' => 'fas fa-tags', // ikon untuk kategori/label
+        ],
+        [
+            'text' => 'Foto Produk',
+            'url'  => 'admin/foto-produk',
+            'icon' => 'fas fa-image', // ikon foto/gambar
         ],
         [
             'text' => 'Produk',
             'url'  => 'admin/produk',
-            'icon' => 'fas fa-tachometer-alt',
+            'icon' => 'fas fa-box-open', // ikon untuk produk/barang
         ],
     ],
 
