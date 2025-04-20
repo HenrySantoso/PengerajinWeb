@@ -12,6 +12,40 @@
         <form action="{{ route('admin.usaha-update', $usaha->id) }}" method="POST" id="editUsahaForm">
             @csrf
             @method('PUT')
+            <!-- Kode Usaha -->
+            <div class="form-group mb-3">
+                <label for="kode_usaha">Kode Usaha</label>
+                <input type="text" class="form-control" id="kode_usaha" name="kode_usaha"
+                    value="{{ old('kode_usaha', $usaha->kode_usaha) }}" required>
+            </div>
+
+            <!-- Pengerajin -->
+            <div class="form-group mb-3">
+                <label for="pengerajin_id">Nama Pengerajin</label>
+                <select class="form-control" id="pengerajin_id" name="pengerajin_id" required>
+                    <option value="">Pilih Nama Pengerajin</option>
+                    @foreach ($pengerajins as $pengerajin)
+                        <option value="{{ $pengerajin->id }}"
+                            {{ $usaha->pengerajin_id == $pengerajin->id ? 'selected' : '' }}>
+                            {{ $pengerajin->nama_pengerajin }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Nama Jenis Usaha -->
+            <div class="form-group mb-3">
+                <label for="jenis_usaha_id">Kode Jenis Usaha</label>
+                <select class="form-control" id="jenis_usaha_id" name="jenis_usaha_id" required>
+                    <option value="">Pilih Kode Jenis Usaha</option>
+                    @foreach ($jenisUsahas as $jenisUsaha)
+                        <option value="{{ $jenisUsaha->id }}"
+                            {{ $usaha->jenis_usaha_id == $jenisUsaha->id ? 'selected' : '' }}>
+                            {{ $jenisUsaha->nama_jenis_usaha }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
             <!-- Nama usaha -->
             <div class="form-group mb-3">
@@ -20,11 +54,11 @@
                     value="{{ old('nama_usaha', $usaha->nama_usaha) }}" required>
             </div>
 
-            <!-- Jenis Usaha -->
+            <!-- Deskripsi Usaha -->
             <div class="form-group mb-3">
-                <label for="jenis_usaha">Jenis Usaha</label>
-                <input type="text" class="form-control" id="jenis_usaha" name="jenis_usaha"
-                    value="{{ old('jenis_usaha', $usaha->jenis_usaha) }}" required>
+                <label for="deskripsi_usaha">Deskripsi Usaha</label>
+                <textarea class="form-control" id="deskripsi_usaha" name="deskripsi_usaha" rows="3"
+                    required>{{ old('deskripsi_usaha', $usaha->deskripsi_usaha) }}</textarea>
             </div>
 
             <!-- Tombol Submit -->

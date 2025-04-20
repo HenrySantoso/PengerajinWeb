@@ -34,7 +34,6 @@ Route::put('admin/pengerajin/update/{id}', [PengerajinController::class, 'update
 Route::delete('admin/pengerajin/destroy/{id}', [PengerajinController::class, 'destroy'])->name('admin.pengerajin-destroy');
 
 // Produk
-// Nama Produk
 Route::get('admin/produk', [ProdukController::class, 'index'])->name('admin.produk-index');
 Route::get('admin/produk/create', [ProdukController::class, 'create'])->name('admin.produk-create');
 Route::post('admin/produk/store', [ProdukController::class, 'store'])->name('admin.produk-store');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Usaha;
+use App\Models\JenisUsaha;
+use App\Models\Pengerajin;
 use Illuminate\Http\Request;
 
 class UsahaController extends Controller
@@ -19,38 +21,59 @@ class UsahaController extends Controller
 
     public function create()
     {
-        return view('admin.usaha.create-usaha');
+        $dataPengerajin = Pengerajin::all();
+        $dataJenisUsaha = JenisUsaha::all();
+        return view('admin.usaha.create-usaha', [
+            'pengerajins' => $dataPengerajin,
+            'jenisUsahas' => $dataJenisUsaha
+        ]);
     }
 
     public function edit($id)
     {
+        $dataPengerajin = Pengerajin::all();
+        $dataJenisUsaha = JenisUsaha::all();
         $usaha = Usaha::findOrFail($id);
-        return view('admin.usaha.edit-usaha', compact('usaha'));
+        // Ambil data jenis usaha berdasarkan ID
+        // Kirim data ke view
+        return view('admin.usaha.edit-usaha', [
+            'usaha' => $usaha,
+            'pengerajins' => $dataPengerajin,
+            'jenisUsahas' => $dataJenisUsaha
+        ]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nama_usaha' => 'required|string',
-            'jenis_usaha' => 'required|string',
+            'kode_usaha' => 'required|string|max:255',
+            'pengerajin_id' => 'required|exists:pengerajin,id',
+            'jenis_usaha_id' => 'required|exists:jenis_usaha,id',
+            'nama_usaha' => 'required|string|max:255',
+            'deskripsi_usaha' => 'nullable|string',
         ]);
 
         Usaha::create($request->all());
 
-        return redirect()->route('admin.usaha-index')->with('success', 'Usaha berhasil ditambahkan.');
+        return redirect()->route('admin.usaha-index')
+            ->with('success', 'Usaha berhasil ditambahkan.');
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_usaha' => 'required|string',
-            'jenis_usaha' => 'required|string',
+        $data = $request->validate([
+            'kode_usaha' => 'required|string|max:255',
+            'pengerajin_id' => 'required|exists:pengerajin,id',
+            'jenis_usaha_id' => 'required|exists:jenis_usaha,id',
+            'nama_usaha' => 'required|string|max:255',
+            'deskripsi_usaha' => 'nullable|string',
         ]);
 
         $usaha = Usaha::findOrFail($id);
-        $usaha->update($request->all());
+        $usaha->update($data);
 
-        return redirect()->route('admin.usaha-index')->with('success', 'Usaha berhasil diperbarui.');
+        return redirect()->route('admin.usaha-index')
+            ->with('success', 'Usaha berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -58,12 +81,7 @@ class UsahaController extends Controller
         $usaha = Usaha::findOrFail($id);
         $usaha->delete();
 
-        return redirect()->route('admin.usaha-index')->with('success', 'Usaha berhasil dihapus.');
-    }
-
-    public function show($id)
-    {
-        $usaha = Usaha::findOrFail($id);
-        return view('admin.usaha.show', compact('usaha'));
+        return redirect()->route('admin.usaha-index')
+            ->with('success', 'Usaha berhasil dihapus.');
     }
 }

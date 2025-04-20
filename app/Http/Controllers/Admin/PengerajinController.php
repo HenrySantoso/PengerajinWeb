@@ -40,7 +40,8 @@ class PengerajinController extends Controller
         // Simpan data ke database
         Pengerajin::create($request->all());
 
-        return redirect()->route('admin.pengerajin-index')->with('success', 'Pengerajin berhasil ditambahkan.');
+        return redirect()->route('admin.pengerajin-index')
+            ->with('success', 'Pengerajin berhasil ditambahkan.');
     }
 
     public function update(Request $request, $id)
@@ -64,6 +65,7 @@ class PengerajinController extends Controller
         $pengerajin = Pengerajin::findOrFail($id);
         $pengerajin->delete();
 
-        return redirect()->route('admin.pengerajin-index')->with('success', 'Pengerajin berhasil dihapus.');
+        return redirect()->route('admin.pengerajin-index')
+            ->with('success', 'Pengerajin berhasil dihapus.');
     }
 }

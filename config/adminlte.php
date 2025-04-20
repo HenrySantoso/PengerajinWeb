@@ -428,6 +428,11 @@ return [
             'url'  => 'admin/produk',
             'icon' => 'fas fa-box-open', // ikon untuk produk/barang
         ],
+        [
+            'text' => 'Produk Kategori',
+            'url'  => 'admin/produk-kategori',
+            'icon' => 'fas fa-box-open', // ikon untuk produk/barang
+        ]
     ],
 
     /*
