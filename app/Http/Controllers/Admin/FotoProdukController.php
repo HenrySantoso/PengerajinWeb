@@ -45,7 +45,6 @@ class FotoProdukController extends Controller
 
     public function store(Request $request)
     {
-        //dd('masuk store', $request->all());
         // Validasi input data
         $request->validate([
             'kode_foto_produk' => 'required|string|max:255|unique:foto_produk,kode_foto_produk',
@@ -55,14 +54,23 @@ class FotoProdukController extends Controller
 
         // Simpan data foto produk ke database
         if ($request->hasFile('file_foto_produk')) {
-            $path = $request->file('file_foto_produk')->store('foto_produk', 'public');
+            // Mendapatkan nama asli file
+            $originalName = $request->file('file_foto_produk')->getClientOriginalName();
 
+            // Menyimpan file dengan nama asli
+            $path = $request->file('file_foto_produk')->storeAs('foto_produk', $originalName, 'public');
+
+            // Mengupdate data dengan path relatif
+            $data['file_foto_produk'] = $path;
+
+            // Simpan data foto produk ke database
             FotoProduk::create([
                 'kode_foto_produk' => $request->kode_foto_produk,
                 'produk_id' => $request->produk_id,
-                'file_foto_produk' => $path,
+                'file_foto_produk' => $data['file_foto_produk'],
             ]);
 
+            // Redirect setelah berhasil
             return redirect()->route('admin.foto_produk-index')
                 ->with('success', 'Foto produk berhasil disimpan.');
         } else {
@@ -73,33 +81,32 @@ class FotoProdukController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validasi dan update data foto produk
         $data = $request->validate([
             'kode_foto_produk' => 'required|string|max:255',
             'produk_id' => 'required|exists:produk,id',
             'file_foto_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Cek apakah ada file foto produk yang diupload
+        $fotoProduk = FotoProduk::findOrFail($id);
+        //dd($fotoProduk->file_foto_produk);
+
         if ($request->hasFile('file_foto_produk')) {
-            // Hapus foto produk lama jika ada
-            $fotoProduk = FotoProduk::findOrFail($id);
             if ($fotoProduk->file_foto_produk) {
                 Storage::disk('public')->delete($fotoProduk->file_foto_produk);
             }
 
-            // Simpan foto produk baru
-            $path = $request->file('file_foto_produk')->store('foto_produk', 'public');
+            $originalName = $request->file('file_foto_produk')->getClientOriginalName();
+
+            // Menyimpan file dengan nama asli
+            $path = $request->file('file_foto_produk')->storeAs('foto_produk', $originalName, 'public');
+
+            // Mengupdate data dengan path relatif
             $data['file_foto_produk'] = $path;
-        }
-        // Jika tidak ada file foto produk baru, tetap gunakan yang lama
-        else {
-            $fotoProduk = FotoProduk::findOrFail($id);
+        } else {
             $data['file_foto_produk'] = $fotoProduk->file_foto_produk;
         }
 
-        // Update data ke database
-        FotoProduk::where('id', $id)->update($data);
+        $fotoProduk->update($data);
 
         return redirect()->route('admin.foto_produk-index')
             ->with('success', 'Foto Produk berhasil diperbarui.');
@@ -107,8 +114,11 @@ class FotoProdukController extends Controller
 
     public function destroy($id)
     {
-        // Hapus data foto produk berdasarkan ID
         $fotoProduk = FotoProduk::findOrFail($id);
+        if ($fotoProduk->file_foto_produk) {
+            Storage::disk('public')->delete($fotoProduk->file_foto_produk);
+        }
+
         $fotoProduk->delete();
 
         return redirect()->route('admin.foto_produk-index')

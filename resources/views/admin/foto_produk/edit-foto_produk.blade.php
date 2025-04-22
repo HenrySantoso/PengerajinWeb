@@ -9,8 +9,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('admin.foto_produk-update', $fotoProduk->id) }}" method="POST" id="editFotoProdukForm"
-            enctype="multipart/form-data">
+        <form action="{{ route('admin.foto_produk-update', $fotoProduk->id) }}" method="POST" id="editFotoProdukForm" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <!-- Kode Foto Produk -->
@@ -33,13 +32,14 @@
                 </select>
                 <small class="text-muted">Silakan pilih produk yang terkait dengan foto ini.</small>
                 <small class="text-muted">Silakan pilih produk yang sesuai dengan foto produk ini.</small>
-                <small class="text-muted">Pastikan untuk memilih produk yang benar agar foto dapat terhubung dengan produk yang tepat.</small>
+                <small class="text-muted">Pastikan untuk memilih produk yang benar agar foto dapat terhubung dengan produk
+                    yang tepat.</small>
             </div>
 
             <!-- File Foto Produk -->
             <div class="form-group mb-3">
                 <label for="foto_produk">File Foto Produk</label>
-                <input type="file" class="form-control" id="foto_produk" name="foto_produk" accept="image/*">
+                <input type="file" class="form-control" id="file_foto_produk" name="file_foto_produk" accept="image/*">
                 <small class="text-muted">Format yang didukung: JPG, PNG, GIF.</small>
                 <small class="text-muted">Ukuran maksimum: 2MB.</small>
                 <small class="text-muted">Silakan pilih file foto produk yang ingin diunggah.</small>
