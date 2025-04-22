@@ -12,19 +12,18 @@
         <form action="{{ route('admin.jenis_usaha-update', $jenisUsaha->id) }}" method="POST" id="editJenisUsahaForm">
             @csrf
             @method('PUT')
-
-            <!-- Kode Jenis usaha -->
+            <!-- Kode Jenis Usaha -->
             <div class="form-group mb-3">
-                <label for="kode_jenis_usaha">Kode jenis usaha</label>
+                <label for="kode_jenis_usaha">Kode Jenis Usaha</label>
                 <input type="text" class="form-control" id="kode_jenis_usaha" name="kode_jenis_usaha"
                     value="{{ old('kode_jenis_usaha', $jenisUsaha->kode_jenis_usaha) }}" required>
             </div>
 
             <!-- Nama Jenis Usaha -->
             <div class="form-group mb-3">
-                <label for="nama_jenis_usaha">Nama Jenis Usaha</label>
-                <input type="text" class="form-control" id="nama_jenis_usaha" name="nama_jenis_usaha"
-                    value="{{ old('nama_jenis_usaha', $jenisUsaha->nama_jenis_usaha) }}" required>
+                <label for="nama_usaha">Nama Jenis Usaha</label>
+                <input type="text" class="form-control" id="nama_usaha" name="nama_usaha"
+                    value="{{ old('nama_usaha', $jenisUsaha->nama_usaha) }}" required>
             </div>
 
             <!-- Tombol Submit -->

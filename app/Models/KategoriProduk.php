@@ -11,4 +11,9 @@ class KategoriProduk extends Model
         'kode_kategori_produk',
         'nama_kategori_produk',
     ];
+
+    public function daftarProduk()
+    {
+        return $this->hasMany(DaftarProduk::class, 'daftar_produk_id');
+    }
 }

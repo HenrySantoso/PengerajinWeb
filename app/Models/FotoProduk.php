@@ -10,7 +10,7 @@ class FotoProduk extends Model
     protected $fillable = [
         'kode_foto_produk',
         'produk_id',
-        'nama_foto_produk'
+        'file_foto_produk'
     ];
 
     public function produk()

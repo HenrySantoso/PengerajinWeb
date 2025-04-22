@@ -17,6 +17,6 @@ class Pengerajin extends Model
 
     public function usaha()
     {
-        return $this->belongsTo(Usaha::class);
+        return $this->hasMany(Usaha::class, 'pengerajin_id');
     }
 }

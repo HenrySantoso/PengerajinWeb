@@ -80,6 +80,7 @@ https://templatemo.com/tm-571-hexashop
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li class="scroll-to-section"><a href="{{ route ( 'login') }}">Login</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_foto_produk')->unique();
             $table->foreignId('produk_id')->constrained('produk')->onDelete('cascade');
-            $table->string('nama_foto_produk')->nullable();
+            $table->string('file_foto_produk')->nullable();
             $table->timestamps();
         });
     }

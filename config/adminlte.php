@@ -429,8 +429,8 @@ return [
             'icon' => 'fas fa-box-open', // ikon untuk produk/barang
         ],
         [
-            'text' => 'Produk Kategori',
-            'url'  => 'admin/produk-kategori',
+            'text' => 'Daftar Produk',
+            'url'  => 'admin/daftar-produk',
             'icon' => 'fas fa-box-open', // ikon untuk produk/barang
         ]
     ],

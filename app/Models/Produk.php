@@ -14,4 +14,14 @@ class Produk extends Model
         'harga',
         'stok',
     ];
+
+    public function daftarProduk()
+    {
+        return $this->hasMany(DaftarProduk::class, 'produk_id');
+    }
+
+    public function fotoProduk()
+    {
+        return $this->hasMany(FotoProduk::class, 'foto_produk_id');
+    }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('usaha_produk', function (Blueprint $table) {
             $table->id();
             $table->foreignId('usaha_id')->constrained('usaha')->onDelete('cascade');
-            $table->foreignId('produk_kategori_produk_id')->constrained('produk_kategori_produk')->onDelete('cascade');
+            $table->foreignId('daftar_produk_id')->constrained('daftar_produk')->onDelete('cascade');
             $table->timestamps();
         });
     }

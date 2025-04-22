@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PengerajinController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\KategoriProdukController;
 use App\Http\Controllers\Admin\FotoProdukController;
+use App\Http\Controllers\Admin\DaftarProdukController;
 use App\Http\Controllers\Admin\UsahaController;
 use App\Http\Controllers\Admin\JenisUsahaController;
 
@@ -57,6 +58,14 @@ Route::get('admin/foto-produk/edit/{id}', [FotoProdukController::class, 'edit'])
 Route::put('admin/foto-produk/update/{id}', [FotoProdukController::class, 'update'])->name('admin.foto_produk-update');
 Route::delete('admin/foto-produk/destroy/{id}', [FotoProdukController::class, 'destroy'])->name('admin.foto_produk-destroy');
 
+// Daftar Produk
+Route::get('admin/daftar-produk', [DaftarProdukController::class, 'index'])->name('admin.daftar_produk-index');
+Route::get('admin/daftar-produk/create', [DaftarProdukController::class, 'create'])->name('admin.daftar_produk-create');
+Route::post('admin/daftar-produk/store', [DaftarProdukController::class, 'store'])->name('admin.daftar_produk-store');
+Route::get('admin/daftar-produk/edit/{id}', [DaftarProdukController::class, 'edit'])->name('admin.daftar_produk-edit');
+Route::put('admin/daftar-produk/update/{id}', [DaftarProdukController::class, 'update'])->name('admin.daftar_produk-update');
+Route::delete('admin/daftar-produk/destroy/{id}', [DaftarProdukController::class, 'destroy'])->name('admin.daftar_produk-destroy');
+
 // Usaha
 Route::get('admin/usaha', [UsahaController::class, 'index'])->name('admin.usaha-index');
 Route::get('admin/usaha/create', [UsahaController::class, 'create'])->name('admin.usaha-create');
@@ -72,7 +81,6 @@ Route::post('admin/jenis-usaha/store', [JenisUsahaController::class, 'store'])->
 Route::get('admin/jenis-usaha/edit/{id}', [JenisUsahaController::class, 'edit'])->name('admin.jenis_usaha-edit');
 Route::put('admin/jenis-usaha/update/{id}', [JenisUsahaController::class, 'update'])->name('admin.jenis_usaha-update');
 Route::delete('admin/jenis-usaha/destroy/{id}', [JenisUsahaController::class, 'destroy'])->name('admin.jenis_usaha-destroy');
-
 
 //Guest
 Route::get('', [PageController::class, 'index'])->name('guest.index');
