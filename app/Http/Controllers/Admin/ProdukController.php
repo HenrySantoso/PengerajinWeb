@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\KategoriProduk;
 
 class ProdukController extends Controller
 {
@@ -19,19 +20,30 @@ class ProdukController extends Controller
 
     public function create()
     {
-        return view('admin.produk.create-produk');
+        // Ambil data kategori produk dari database
+        $kategoriProduks = KategoriProduk::all();
+        // Kirim data kategori produk ke view
+        return view('admin.produk.create-produk', [
+            'kategoriProduks' => $kategoriProduks
+        ]);
     }
 
     public function edit($id)
     {
+        $kategoriProduks = KategoriProduk::all();
         $produk = Produk::findOrFail($id);
-        return view('admin.produk.edit-produk', compact('produk'));
+        // Kirim data produk dan kategori produk ke view
+        return view('admin.produk.edit-produk', [
+            'kategoriProduks' => $kategoriProduks,
+            'produk' => $produk
+        ]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'kode_produk' => 'required|string',
+            'kategori_produk_id' => 'required|exists:kategori_produk,id',
             'nama_produk' => 'required|string',
             'deskripsi' => 'required|string',
             'harga' => 'required|integer',
@@ -49,6 +61,7 @@ class ProdukController extends Controller
     {
         $data = $request->validate([
             'kode_produk' => 'required|string',
+            'kategori_produk_id' => 'required|exists:kategori_produk,id',
             'nama_produk' => 'required|string',
             'deskripsi' => 'required|string',
             'harga' => 'required|integer',

@@ -9,15 +9,15 @@ class Produk extends Model
     protected $table = 'produk';
     protected $fillable = [
         'kode_produk',
+        'kategori_produk_id',
         'nama_produk',
         'deskripsi',
         'harga',
         'stok',
     ];
-
-    public function daftarProduk()
+    public function kategoriProduk()
     {
-        return $this->hasMany(DaftarProduk::class, 'produk_id');
+        return $this->belongsTo(KategoriProduk::class, 'kategori_produk_id');
     }
 
     public function fotoProduk()

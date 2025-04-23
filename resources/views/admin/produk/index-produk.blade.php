@@ -40,6 +40,7 @@
         <tr>
             <th>Kode Produk</th>
             <th>Nama Produk</th>
+            <th>KategoriProduk</th>
             <th>Deskripsi</th>
             <th>Harga</th>
             <th>Stok</th>
@@ -51,6 +52,7 @@
             <tr>
                 <td>{{ $produk->kode_produk }}</td>
                 <td>{{ $produk->nama_produk }}</td>
+                <td>{{ $produk->kategoriProduk->nama_kategori_produk }}</td>
                 <td>{{ $produk->deskripsi }}</td>
                 <td>{{ number_format($produk->harga, 2, ',', '.') }}</td>
                 <td>{{ $produk->stok }}</td>

@@ -20,6 +20,20 @@
                     value="{{ old('kode_produk', $produk->kode_produk) }}" required>
             </div>
 
+            <!-- Nama kategori produk -->
+            <div class="form-group mb-3">
+                <label for="kategori_produk_id">Nama kategori produk</label>
+                <select class="form-control" id="kategori_produk_id" name="kategori_produk_id" required>
+                    <option value="">Pilih kategori produk</option>
+                    @foreach ($kategoriProduks as $kategoriProduk)
+                        <option value="{{ $kategoriProduk->id }}"
+                            {{ $produk->kategori_produk_id == $kategoriProduk->id ? 'selected' : '' }}>
+                            {{ $kategoriProduk->nama_kategori_produk }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Nama produk -->
             <div class="form-group mb-3">
                 <label for="nama_produk">Nama produk</label>

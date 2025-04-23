@@ -22,6 +22,17 @@
             <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" required>
         </div>
 
+        <!-- Nama Kategori Produk -->
+        <div class="mb-3">
+            <label for="kategori_produk_id" class="form-label">Nama Kategori Produk</label>
+            <select class="form-control" id="kategori_produk_id" name="kategori_produk_id" required>
+                <option value="">Pilih Kategori Produk</option>
+                @foreach ($kategoriProduks as $kategoriProduk)
+                    <option value="{{ $kategoriProduk->id }}">{{ $kategoriProduk->nama_kategori_produk }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <!-- Deskripsi -->
         <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi</label>

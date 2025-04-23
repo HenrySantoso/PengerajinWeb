@@ -419,20 +419,31 @@ return [
             'icon' => 'fas fa-tags', // ikon untuk kategori/label
         ],
         [
-            'text' => 'Foto Produk',
-            'url'  => 'admin/foto-produk',
-            'icon' => 'fas fa-image', // ikon foto/gambar
-        ],
-        [
             'text' => 'Produk',
             'url'  => 'admin/produk',
             'icon' => 'fas fa-box-open', // ikon untuk produk/barang
         ],
         [
-            'text' => 'Daftar Produk',
-            'url'  => 'admin/daftar-produk',
-            'icon' => 'fas fa-clipboard-list', // ikon untuk produk/barang
-        ]
+            'text' => 'Foto Produk',
+            'url'  => 'admin/foto-produk',
+            'icon' => 'fas fa-image', // ikon foto/gambar
+        ],
+        [
+            'text' => 'Usaha Pengerajin',
+            'url'  => 'admin/usaha-pengerajin',
+            'icon' => 'fas fa-briefcase', // ikon untuk usaha/pekerjaan
+        ],
+        [
+            'text' => 'Usaha Jenis',
+            'url'  => 'admin/usaha-jenis',
+            'icon' => 'fas fa-briefcase', // ikon untuk usaha/pekerjaan
+        ],
+        [
+            'text' => 'Usaha Produk',
+            'url'  => 'admin/usaha-produk',
+            'icon' => 'fas fa-briefcase', // ikon untuk usaha/pekerjaan
+        ],
+
     ],
 
     /*
