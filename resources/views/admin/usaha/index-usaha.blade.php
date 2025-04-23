@@ -39,9 +39,7 @@
     <thead>
         <tr>
             <th>Kode Usaha</th>
-            <th>Nama Pengerajin</th>
             <th>Nama Usaha</th>
-            <th>Jenis Usaha</th>
             <th>Deskripsi Usaha</th>
             <th>Actions</th>
         </tr>
@@ -50,9 +48,7 @@
         @foreach($usahas as $usaha)
             <tr>
                 <td>{{ $usaha->kode_usaha }}</td>
-                <td>{{ $usaha->pengerajin->nama_pengerajin }}</td>
                 <td>{{ $usaha->nama_usaha }}</td>
-                <td>{{ $usaha->jenisUsaha->nama_jenis_usaha }}</td>
                 <td>{{ $usaha->deskripsi_usaha }}</td>
                 <td>
                     <a href="{{ route('admin.usaha-edit', $usaha->id) }}" class="btn btn-warning">Edit</a>

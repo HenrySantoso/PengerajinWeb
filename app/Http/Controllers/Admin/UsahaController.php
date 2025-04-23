@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Usaha;
-use App\Models\JenisUsaha;
-use App\Models\Pengerajin;
 use Illuminate\Http\Request;
 
 class UsahaController extends Controller
@@ -21,34 +19,19 @@ class UsahaController extends Controller
 
     public function create()
     {
-        $dataPengerajin = Pengerajin::all();
-        $dataJenisUsaha = JenisUsaha::all();
-        return view('admin.usaha.create-usaha', [
-            'pengerajins' => $dataPengerajin,
-            'jenisUsahas' => $dataJenisUsaha
-        ]);
+        return view('admin.usaha.create-usaha');
     }
 
     public function edit($id)
     {
-        $dataPengerajin = Pengerajin::all();
-        $dataJenisUsaha = JenisUsaha::all();
         $usaha = Usaha::findOrFail($id);
-        // Ambil data jenis usaha berdasarkan ID
-        // Kirim data ke view
-        return view('admin.usaha.edit-usaha', [
-            'usaha' => $usaha,
-            'pengerajins' => $dataPengerajin,
-            'jenisUsahas' => $dataJenisUsaha
-        ]);
+        return view('admin.usaha.edit-usaha', compact('usaha'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'kode_usaha' => 'required|string|max:255',
-            'pengerajin_id' => 'required|exists:pengerajin,id',
-            'jenis_usaha_id' => 'required|exists:jenis_usaha,id',
             'nama_usaha' => 'required|string|max:255',
             'deskripsi_usaha' => 'nullable|string',
         ]);
@@ -63,8 +46,6 @@ class UsahaController extends Controller
     {
         $data = $request->validate([
             'kode_usaha' => 'required|string|max:255',
-            'pengerajin_id' => 'required|exists:pengerajin,id',
-            'jenis_usaha_id' => 'required|exists:jenis_usaha,id',
             'nama_usaha' => 'required|string|max:255',
             'deskripsi_usaha' => 'nullable|string',
         ]);
