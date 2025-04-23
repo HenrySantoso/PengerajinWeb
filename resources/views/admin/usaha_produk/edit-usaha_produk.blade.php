@@ -1,15 +1,15 @@
 {{-- resources/views/admin/produk-edit.blade.php --}}
 @extends('adminlte::page')
 
-@section('title', 'Edit Data Usaha Jenis')
+@section('title', 'Edit Data Usaha Produk')
 
 @section('content_header')
-    <h1>Edit Data Usaha Jenis</h1>
+    <h1>Edit Data Usaha - Produk</h1>
 @stop
 
 @section('content')
     <div class="container">
-        <form action="{{ route('admin.usaha_jenis-update', $usahaJenis->id) }}" method="POST" id="editUsahaJenisForm">
+        <form action="{{ route('admin.usaha_produk-update', $usahaProduk->id) }}" method="POST" id="editUsahaProdukForm">
             @csrf
             @method('PUT')
             <!-- Nama Usaha -->
@@ -18,27 +18,27 @@
                 <select class="form-control" id="usaha_id" name="usaha_id" required>
                     <option value="">Pilih Usaha</option>
                     @foreach ($usahas as $usaha)
-                        <option value="{{ $usaha->id }}" {{ $usahaJenis->usaha_id == $usaha->id ? 'selected' : '' }}>
+                        <option value="{{ $usaha->id }}" {{ $usahaProduk->usaha_id == $usaha->id ? 'selected' : '' }}>
                             {{ $usaha->nama_usaha }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <!-- Nama jenis_usaha -->
+            <!-- Nama produk -->
             <div class="form-group mb-3">
-                <label for="jenis_usaha_id">Kode Jenis Usaha</label>
-                <select class="form-control" id="jenis_usaha_id" name="jenis_usaha_id" required>
-                    <option value="">Pilih Kode jenis_usaha</option>
-                    @foreach ($jenisUsahas as $jenis_usaha)
-                        <option value="{{ $jenis_usaha->id }}" {{ $usahaJenis->jenis_usaha_id == $jenis_usaha->id ? 'selected' : '' }}>
-                            {{ $jenis_usaha->nama_jenis_usaha }}</option>
+                <label for="produk_id">Nama Produk</label>
+                <select class="form-control" id="produk_id" name="produk_id" required>
+                    <option value="">Pilih Nama produk</option>
+                    @foreach ($produks as $produk)
+                        <option value="{{ $produk->id }}" {{ $usahaProduk->produk_id == $produk->id ? 'selected' : '' }}>
+                            {{ $produk->nama_produk }}</option>
                     @endforeach
                 </select>
             </div>
 
             <!-- Tombol Submit -->
             <button type="submit" class="btn btn-primary">Update Data</button>
-            <a href="{{ route('admin.usaha_jenis-index') }}" class="btn btn-secondary">Batal</a>
+            <a href="{{ route('admin.usaha_produk-index') }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
 @stop
@@ -51,7 +51,7 @@
 @section('js')
     <script>
         // Contoh validasi sederhana sebelum submit
-        document.getElementById('editUsahaJenisForm">').addEventListener('submit', function(e) {
+        document.getElementById('editUsahaProdukForm').addEventListener('submit', function(e) {
 
         });
         console.log("Form Edit Daftar Produk loaded");
