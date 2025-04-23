@@ -58,6 +58,11 @@
                 </td>
             </tr>
         @endforeach
+        @if($usahaJeniss->isEmpty())
+            <tr>
+                <td colspan="3" class="text-center">Tidak ada data usaha jenis</td>
+            </tr>
+        @endif
     </tbody>
 </table>
 @stop

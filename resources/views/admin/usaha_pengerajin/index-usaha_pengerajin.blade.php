@@ -3,7 +3,7 @@
 @section('title', 'Usaha Jenis - Admin')
 
 @section('content_header')
-    <h1>Data Usaha - Jenis</h1>
+    <h1>Data Usaha - Pengerajin</h1>
 @stop
 
 @section('content')
@@ -33,24 +33,24 @@
     }
 </style>
 
-<a href="{{ route('admin.usaha_jenis-create') }}" class="btn btn-success">+ Tambah Usaha Jenis</a>
+<a href="{{ route('admin.usaha_pengerajin-create') }}" class="btn btn-success">+ Tambah Usaha Pengerajin</a>
 
 <table>
     <thead>
         <tr>
             <th>Nama Usaha</th>
-            <th>Jenis Usaha</th>
+            <th>Nama Pengerajin</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($usahaJeniss as $usahaJenis)
+        @foreach($usahaPengerajins as $usahaPengerajin)
             <tr>
-                <td>{{ $usahaJenis->usaha->nama_usaha }}</td>
-                <td>{{ $usahaJenis->jenisUsaha->nama_jenis_usaha}}</td>
+                <td>{{ $usahaPengerajin->usaha->nama_usaha }}</td>
+                <td>{{ $usahaPengerajin->pengerajin->nama_pengerajin }}</td>
                 <td>
-                    <a href="{{ route('admin.usaha_jenis-edit', $usahaJenis->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('admin.usaha_jenis-destroy', $usahaJenis->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('admin.usaha_pengerajin-edit', $usahaPengerajin->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('admin.usaha_pengerajin-destroy', $usahaPengerajin->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -58,6 +58,11 @@
                 </td>
             </tr>
         @endforeach
+        @if($usahaPengerajins->isEmpty())
+            <tr>
+                <td colspan="3" style="text-align: center;">Tidak ada data usaha jenis.</td>
+            </tr>
+        @endif
     </tbody>
 </table>
 @stop
