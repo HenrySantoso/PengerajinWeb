@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PengerajinController;
 use App\Http\Controllers\Admin\ProdukController;
@@ -21,9 +21,13 @@ Route::get('/welcome', function () {
 });
 
 // Authentication Routes
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('loginForm');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/logout/form', [AuthController::class, 'logoutForm'])->name('logoutForm');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Profile
+Route::get('admin/profile', [ProfileController::class, 'index'])->name('admin.profile-index');
 
 // Dashboard
 Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');

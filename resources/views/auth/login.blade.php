@@ -100,7 +100,9 @@
 <body>
     <div class="login-card">
         <h2>Login to Admin</h2>
-        <form action="loginController.php" method="POST">
+
+        <form action="{{ route('login') }}" method="POST">
+            @csrf
             <div class="form-group mb-3">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" class="form-control" required />
@@ -109,7 +111,8 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" required />
             </div>
-            <button type="submit"  class="btn-modern w-100">Login</button>
+            <button type="submit" class="btn-modern w-100">Login</button>
+
             <div class="text-center mt-4">
                 <span class="text-muted">Belum Punya akun?
                     <a href="#" class="link-modern">Daftar</a>
@@ -122,7 +125,7 @@
             </div>
             <div class="text-center mt-4">
                 <a href="{{ route('guest.index') }}" class="d-block text-decoration-none text-secondary hover-link">←
-                    Back to Home</a>
+                    Kembali</a>
             </div>
         </form>
     </div>
