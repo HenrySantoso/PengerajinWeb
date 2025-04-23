@@ -3,7 +3,7 @@
 @section('title', 'Foto Produk')
 
 @section('content_header')
-    <h1>Data Produk</h1>
+    <h1>Data Foto Produk</h1>
 @stop
 
 @section('content')
@@ -40,8 +40,8 @@
         <thead>
             <tr>
                 <th>Kode Foto Produk</th>
-                <th>Kode Produk</th>
-                <th>Nama Foto Produk</th>
+                <th>Nama Produk</th>
+                <th>Foto Produk</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -49,7 +49,7 @@
             @foreach ($fotoProduks as $fotoProduk)
                 <tr>
                     <td>{{ $fotoProduk->kode_foto_produk }}</td>
-                    <td>{{ $fotoProduk->produk->kode_produk }}</td>
+                    <td>{{ $fotoProduk->produk->nama_produk }}</td>
                     <td>
                         <img src="{{ asset('storage/' . $fotoProduk->file_foto_produk) }}" alt="Foto Produk"
                             style="width: 100px; height: auto;">

@@ -18,23 +18,30 @@
 
         <!-- Produk Id-->
         <div class="mb-3">
-            <label for="produk_id" class="form-label">Kode Produk</label>
+            <label for="produk_id" class="form-label">Nama Produk</label>
             <select class="form-control" id="produk_id" name="produk_id" required>
-                <option value="">Pilih Kode Produk</option>
+                <option value="">Pilih Nama Produk</option>
                 @foreach ($produks as $produk)
-                    <option value="{{ $produk->id }}">{{ $produk->kode_produk }}</option>
+                    <option value="{{ $produk->id }}">{{ $produk->nama_produk }}</option>
                 @endforeach
             </select>
+            <small class="text-muted">Silakan pilih produk yang terkait dengan foto ini.</small>
+            <small class="text-muted">Pastikan untuk memilih produk yang benar agar foto dapat terhubung dengan produk
+                yang tepat.</small>
         </div>
 
         <!-- File Foto Produk -->
         <div class="mb-3">
             <label for="file_foto_produk" class="form-label">File Foto Produk</label>
             <input type="file" class="form-control" id="file_foto_produk" name="file_foto_produk" accept="image/*" required>
+            <small class="text-muted">Format yang didukung: JPG, PNG, GIF.</small>
+            <small class="text-muted">Ukuran maksimum: 2MB.</small>
+            <small class="text-muted">Silakan pilih file foto produk yang ingin diunggah.</small>
         </div>
 
         <!-- Tombol Submit -->
         <button type="submit" class="btn btn-primary">Simpan Data</button>
+        <a href="{{ route('admin.foto_produk-index') }}" class="btn btn-secondary">Batal</a>
     </form>
 </div>
 @stop

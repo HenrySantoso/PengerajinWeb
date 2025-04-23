@@ -21,19 +21,17 @@
 
             <!-- Kode Produk -->
             <div class="form-group mb-3">
-                <label for="produk_id">Kode Produk</label>
+                <label for="produk_id">Nama Produk</label>
                 <select class="form-control" id="produk_id" name="produk_id" required>
-                    <option value="">Pilih Kode Produk</option>
+                    <option value="">Pilih Nama Produk</option>
                     @foreach ($produks as $produk)
                         <option value="{{ $produk->id }}" {{ $fotoProduk->produk_id == $produk->id ? 'selected' : '' }}>
-                            {{ $produk->kode_produk }}
+                            {{ $produk->nama_produk }}
                         </option>
                     @endforeach
                 </select>
                 <small class="text-muted">Silakan pilih produk yang terkait dengan foto ini.</small>
-                <small class="text-muted">Silakan pilih produk yang sesuai dengan foto produk ini.</small>
-                <small class="text-muted">Pastikan untuk memilih produk yang benar agar foto dapat terhubung dengan produk
-                    yang tepat.</small>
+                <small class="text-muted">Pastikan untuk memilih produk yang benar agar foto dapat terhubung dengan produk yang tepat.</small>
             </div>
 
             <!-- File Foto Produk -->

@@ -42,6 +42,7 @@
 
         <!-- Tombol Submit -->
         <button type="submit" class="btn btn-primary">Simpan Data</button>
+        <a href="{{ route('admin.pengerajin-index') }}" class="btn btn-secondary">Batal</a>
     </form>
 </div>
 @stop
