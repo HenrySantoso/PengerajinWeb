@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('usaha_produk', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usaha_id')->constrained('usaha')->onDelete('cascade');
-            $table->foreignId('daftar_produk_id')->constrained('daftar_produk')->onDelete('cascade');
-            $table->timestamps();
+            $table->unsignedBigInteger('usaha_id');
+            $table->unsignedBigInteger('produk_id');
+            $table->timestamps(); // optional, tapi biasanya berguna
+
+            //$table->unique(['usaha_id', 'produk_id']);
+
+            $table->foreign('usaha_id')->references('usaha_id')->on('usaha')->onDelete('cascade');
+            $table->foreign('produk_id')->references('produk_id')->on('produk')->onDelete('cascade');
         });
     }
 

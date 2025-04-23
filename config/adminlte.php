@@ -431,7 +431,7 @@ return [
         [
             'text' => 'Daftar Produk',
             'url'  => 'admin/daftar-produk',
-            'icon' => 'fas fa-box-open', // ikon untuk produk/barang
+            'icon' => 'fas fa-clipboard-list', // ikon untuk produk/barang
         ]
     ],
 

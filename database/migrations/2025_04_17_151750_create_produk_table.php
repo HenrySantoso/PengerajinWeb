@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
             $table->string('kode_produk')->unique();
+            $table->foreignId('kategori_produk_id')->constrained('kategori_produk');
             $table->string('nama_produk')->nullable();
             $table->string('deskripsi')->nullable();
             $table->integer('harga')->nullable();
