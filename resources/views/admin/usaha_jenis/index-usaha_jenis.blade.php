@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Daftar Produk - Admin')
+@section('title', 'Usaha Jenis - Admin')
 
 @section('content_header')
-    <h1>Data Daftar Produk</h1>
+    <h1>Data Usaha - Jenis</h1>
 @stop
 
 @section('content')
@@ -33,24 +33,24 @@
     }
 </style>
 
-<a href="{{ route('admin.daftar_produk-create') }}" class="btn btn-success">+ Tambah Kategori Produk</a>
+<a href="{{ route('admin.usaha_jenis-create') }}" class="btn btn-success">+ Tambah Usaha Jenis</a>
 
 <table>
     <thead>
         <tr>
-            <th>Kode Produk</th>
-            <th>Kode Kategori Produk</th>
+            <th>Nama Usaha</th>
+            <th>Jenis Usaha</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($daftarProduks as $daftarProduk)
+        @foreach($usahaJeniss as $usahaJenis)
             <tr>
-                <td>{{ $daftarProduk->produk->kode_produk }}</td>
-                <td>{{ $daftarProduk->kategoriProduk->kode_kategori_produk }}</td>
+                <td>{{ $usahaJenis->usaha->nama_usaha }}</td>
+                <td>{{ $usahaJenis->jenisUsaha->nama_jenis_usaha}}</td>
                 <td>
-                    <a href="{{ route('admin.daftar_produk-edit', $daftarProduk->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('admin.daftar_produk-destroy', $daftarProduk->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('admin.usaha_jenis-edit', $usahaJenis->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('admin.usaha_jenis-destroy', $usahaJenis->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

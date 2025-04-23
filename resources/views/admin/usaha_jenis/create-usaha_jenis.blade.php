@@ -1,33 +1,33 @@
 @extends('adminlte::page')
 
-@section('title', 'Create Data Daftar Produk')
+@section('title', 'Create Data Usaha - Jenis Usaha')
 
 @section('content_header')
-    <h1>Create Data Daftar Produk</h1>
+    <h1>Create Data Usaha - Jenis Usaha</h1>
 @stop
 
 @section('content')
 <div class="container">
-    <form action="{{ route('admin.daftar_produk-store') }}" method="POST" id="createDaftarProdukForm">
+    <form action="{{ route('admin.usaha_jenis-store') }}" method="POST" id="createUsahaJenisForm">
         @csrf
-        <!-- Kode Produk -->
-        <div class="mb-3">
-            <label for="produk_id" class="form-label">Kode Produk</label>
-            <select class="form-control" id="produk_id" name="produk_id" required>
-                <option value="">Pilih Kode Produk</option>
-                @foreach ($produks as $produk)
-                    <option value="{{ $produk->id }}">{{ $produk->kode_produk }}</option>
+        <!-- Nama Usaha -->
+        <div class="form-group">
+            <label for="usaha_id">Nama Usaha</label>
+            <select class="form-control" id="usaha_id" name="usaha_id" required>
+                <option value="">Pilih Usaha</option>
+                @foreach ($usahas as $usaha)
+                    <option value="{{ $usaha->id }}">{{ $usaha->nama_usaha }}</option>
                 @endforeach
             </select>
         </div>
 
-        <!-- Kode Kategori Produk -->
-        <div class="mb-3">
-            <label for="kategori_produk_id" class="form-label">Kode Kategori Produk</label>
-            <select class="form-control" id="kategori_produk_id" name="kategori_produk_id" required>
-                <option value="">Pilih Kode Kategori Produk</option>
-                @foreach ($kategoriProduks as $kategoriProduk)
-                    <option value="{{ $kategoriProduk->id }}">{{ $kategoriProduk->kode_kategori_produk }}</option>
+        <!-- Nama jenis_usaha -->
+        <div class="form-group">
+            <label for="jenis_usaha_id">Kode Jenis Usaha</label>
+            <select class="form-control" id="jenis_usaha_id" name="jenis_usaha_id" required>
+                <option value="">Pilih Kode jenis_usaha</option>
+                @foreach ($jenisUsahas as $jenis_usaha)
+                    <option value="{{ $jenis_usaha->id }}">{{ $jenis_usaha->nama_jenis_usaha }}</option>
                 @endforeach
             </select>
         </div>
@@ -46,7 +46,7 @@
 @section('js')
     <!-- Validasi form sederhana dengan JavaScript -->
     <script>
-        document.getElementById('createDaftarProdukForm').addEventListener('submit', function(e) {
+        document.getElementById('createUsahaJenisForm">').addEventListener('submit', function(e) {
             // Contoh validasi dasar: memastikan produk tidak kosong
             if (document.getElementById('produk_id').value.trim() === '') {
                 alert('Kode Produk wajib dipilih!');
