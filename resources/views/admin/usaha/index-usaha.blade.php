@@ -3,40 +3,31 @@
 @section('title', 'Usaha')
 
 @section('content_header')
-    <h1>Data Usaha</h1>
+    <h1
+        style="
+    font-size: 2rem;
+    font-weight: bold;
+    color: #343a40;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+">
+        <i class="fas fa-store"></i> Data Usaha
+    </h1>
+
 @stop
 
 @section('content')
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f4f4f4;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #eef;
-        }
-    </style>
-
     <a href="{{ route('admin.usaha-create') }}" class="btn btn-success">+ Tambah Usaha</a>
+    {{-- tambahkan jarak --}}
+    <br>
+    {{-- tambahkan garis lurus --}}
+    <hr color="#ccc">
 
-    <table>
+    {{-- Tabel --}}
+    <table id="usaha-table" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>Kode Usaha</th>
@@ -83,12 +74,17 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('admin.usaha-edit', $usaha->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('admin.usaha-edit', $usaha->id) }}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i>
+                        </a>
                         <form action="{{ route('admin.usaha-destroy', $usaha->id) }}" method="POST"
                             style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm" title="Hapus Usaha"
+                                onclick="return confirm('Anda yakin ingin menghapus?')">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -98,13 +94,45 @@
 @stop
 
 @section('css')
-    <!-- Tambahkan custom CSS di sini jika perlu -->
-    <link rel="stylesheet" href="/css/custom.css">
+    {{-- <link rel="stylesheet" href="/css/custom.css"> --}}
+
+    {{-- ini buat datatbales --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    {{-- ini soruce icon button --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 @stop
 
 @section('js')
-    <!-- Tambahkan custom JS di sini jika perlu -->
+    {{-- <script src="/js/custom.js"></script> --}}
+
+    {{-- ini buat datatbales --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
-        console.log("Pengerajin loaded");
+        $(document).ready(function() {
+            $('#usaha-table').DataTable({
+                scrollX: true, // 👉 Aktifkan horizontal scroll
+                paging: true, // 👉 Aktifkan paging
+                searching: true, // 👉 Aktifkan search box
+                info: true, // 👉 Aktifkan info "Showing 1 to 10 of 50 entries"
+                stateSave: true, // 👉 Aktifkan state saving (ingat posisi sort/page)
+                order: [
+                    [1, 'asc']
+                ], // 👉 Default sorting berdasarkan Nama Usaha ASC
+                columnDefs: [{
+                        orderable: false,
+                        targets: [5, 8]
+                    }, // 👉 Kolom Foto dan Actions tidak bisa sort
+                    {
+                        width: '100px',
+                        targets: 5
+                    } // 👉 Kolom Foto kecil
+                ]
+            });
+        });
     </script>
 @stop

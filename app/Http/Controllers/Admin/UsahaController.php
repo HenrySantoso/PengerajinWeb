@@ -121,7 +121,6 @@ class UsahaController extends Controller
             ->with('success', 'Usaha berhasil diperbarui.');
     }
 
-
     public function destroy($id)
     {
         $usaha = Usaha::findOrFail($id);
