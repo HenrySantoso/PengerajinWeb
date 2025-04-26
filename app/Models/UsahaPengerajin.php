@@ -17,11 +17,13 @@ class UsahaPengerajin extends Model
 
     public $timestamps = true; // Karena di migrasi ada timestamps (created_at, updated_at)
 
+    // Relasi ke Usaha
     public function usaha()
     {
         return $this->belongsTo(Usaha::class, 'usaha_id');
     }
 
+    // Relasi ke Pengerajin
     public function pengerajin()
     {
         return $this->belongsTo(Pengerajin::class, 'pengerajin_id');

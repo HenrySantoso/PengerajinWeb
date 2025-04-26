@@ -26,24 +26,42 @@
                     value="{{ old('nama_pengerajin', $pengerajin->nama_pengerajin) }}" required>
             </div>
 
-            <!-- Alamat -->
+            <!-- Jenis Kelamin -->
             <div class="form-group mb-3">
-                <label for="alamat">Alamat</label>
-                <textarea class="form-control" id="alamat" name="alamat" rows="3" required>{{ old('alamat', $pengerajin->alamat) }}</textarea>
+                <label for="jk_pengerajin">Jenis Kelamin</label>
+                <select class="form-select" id="jk_pengerajin" name="jk_pengerajin" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="P" {{ $pengerajin->jk_pengerajin == 'P' ? 'selected' : '' }}>Pria</option>
+                    <option value="W" {{ $pengerajin->jk_pengerajin == 'W' ? 'selected' : '' }}>Wanita</option>
+                </select>
             </div>
 
-            <!-- Email -->
+            <!-- Usia -->
             <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email"
-                    value="{{ old('email', $pengerajin->email) }}" required>
+                <label for="usia_pengerajin">Usia</label>
+                <input type="number" class="form-control" id="usia_pengerajin" name="usia_pengerajin"
+                    value="{{ old('usia_pengerajin', $pengerajin->usia_pengerajin) }}" required>
             </div>
 
             <!-- No Telepon -->
             <div class="form-group mb-3">
-                <label for="no_telp">No Telepon</label>
-                <input type="text" class="form-control" id="no_telp" name="no_telp"
-                    value="{{ old('no_telp', $pengerajin->no_telp) }}" required>
+                <label for="telp_pengerajin">No Telepon</label>
+                <input type="text" class="form-control" id="telp_pengerajin" name="telp_pengerajin"
+                    value="{{ old('telp_pengerajin', $pengerajin->telp_pengerajin) }}" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group mb-3">
+                <label for="email_pengerajin">Email</label>
+                <input type="email" class="form-control" id="email_pengerajin" name="email_pengerajin"
+                    value="{{ old('email_pengerajin', $pengerajin->email_pengerajin) }}" required>
+            </div>
+
+            <!-- Alamat -->
+            <div class="form-group mb-3">
+                <label for="alamat_pengerajin">Alamat</label>
+                <textarea class="form-control" id="alamat_pengerajin" name="alamat_pengerajin" rows="3"
+                    required>{{ old('alamat_pengerajin', $pengerajin->alamat_pengerajin) }}</textarea>
             </div>
 
             <!-- Tombol Submit -->
@@ -65,6 +83,27 @@
             const nama = document.getElementById('nama_pengerajin').value.trim();
             if (!nama) {
                 alert('Nama Pengerajin tidak boleh kosong!');
+                e.preventDefault();
+            }
+            const usia = document.getElementById('usia_pengerajin').value.trim();
+            if (!usia || isNaN(usia) || usia <= 0) {
+                alert('Usia Pengerajin tidak valid!');
+                e.preventDefault();
+            }
+            const telp = document.getElementById('telp_pengerajin').value.trim();
+            if (!telp || isNaN(telp) || telp.length < 10) {
+                alert('No Telepon Pengerajin tidak valid!');
+                e.preventDefault();
+            }
+            const email = document.getElementById('email_pengerajin').value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailPattern.test(email)) {
+                alert('Email Pengerajin tidak valid!');
+                e.preventDefault();
+            }
+            const alamat = document.getElementById('alamat_pengerajin').value.trim();
+            if (!alamat) {
+                alert('Alamat Pengerajin tidak boleh kosong!');
                 e.preventDefault();
             }
         });

@@ -32,9 +32,11 @@ class PengerajinController extends Controller
         $request->validate([
             'kode_pengerajin' => 'required|string|max:255',
             'nama_pengerajin' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'email' => 'required|string',
-            'no_telp' => 'required|string',
+            'jk_pengerajin' => 'required|string|max:10',
+            'usia_pengerajin' => 'required|integer',
+            'telp_pengerajin' => 'required|string|max:15',
+            'email_pengerajin' => 'required|email|max:255',
+            'alamat_pengerajin' => 'required|string|max:255',
         ]);
 
         // Simpan data ke database
@@ -49,9 +51,11 @@ class PengerajinController extends Controller
         $data = $request->validate([
             'kode_pengerajin' => 'required|string|max:255',
             'nama_pengerajin' => 'required|string|max:255',
-            'alamat' => 'required|string',
-            'email' => 'required|email',
-            'no_telp' => 'required|string',
+            'jk_pengerajin' => 'required|string|max:10',
+            'usia_pengerajin' => 'required|integer',
+            'telp_pengerajin' => 'required|string|max:15',
+            'email_pengerajin' => 'required|email|max:255',
+            'alamat_pengerajin' => 'required|string|max:255',
         ]);
 
         Pengerajin::where('id', $id)->update($data);

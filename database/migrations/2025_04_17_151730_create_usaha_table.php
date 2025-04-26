@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('deskripsi_usaha')->nullable();
             $table->string('foto_usaha')->nullable();
             $table->string('link_gmap_usaha')->nullable();
-            $table->enum('status_usaha', ['aktif', 'non-aktif'])->default('aktif');
+            $table->enum('status_usaha', ['aktif', 'nonaktif', 'tutup', 'pending', 'dibekukan'])->default('aktif');
 
             $table->timestamps();
         });

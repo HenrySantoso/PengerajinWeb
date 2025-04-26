@@ -52,11 +52,13 @@
 <table>
     <thead>
         <tr>
-            <th>Kode Pengerajin</th>
-            <th>Nama Pengerajin</th>
-            <th>Alamat</th>
-            <th>Email</th>
+            <th>Kode</th>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Usia</th>
             <th>No Telepon</th>
+            <th>Email</th>
+            <th>Alamat</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -65,9 +67,19 @@
             <tr>
                 <td>{{ $pengerajin->kode_pengerajin }}</td>
                 <td>{{ $pengerajin->nama_pengerajin }}</td>
-                <td>{{ $pengerajin->alamat }}</td>
-                <td>{{ $pengerajin->email }}</td>
-                <td>{{ $pengerajin->no_telp }}</td>
+                <td>
+                    @if($pengerajin->jk_pengerajin == 'P')
+                        Pria
+                    @elseif($pengerajin->jk_pengerajin == 'W')
+                        Wanita
+                    @else
+                        Tidak Diketahui
+                    @endif
+                </td>
+                <td>{{ $pengerajin->usia_pengerajin }}</td>
+                <td>{{ $pengerajin->telp_pengerajin }}</td>
+                <td>{{ $pengerajin->email_pengearjin }}</td>
+                <td>{{ $pengerajin->alamat_pengerajin }}</td>
                 <td>
                     <a href="{{ route('admin.pengerajin-edit', $pengerajin->id) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('admin.pengerajin-destroy', $pengerajin->id) }}" method="POST" style="display:inline;">

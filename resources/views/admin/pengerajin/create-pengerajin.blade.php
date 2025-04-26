@@ -22,22 +22,38 @@
             <input type="text" class="form-control" id="nama_pengerajin" name="nama_pengerajin" placeholder="Masukkan Nama Pengerajin" required>
         </div>
 
-        <!-- Alamat -->
+        <!-- Jenis Kelamin -->
         <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat" required></textarea>
+            <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+            <select class="form-select" id="jenis_kelamin" name="jk_pengerajin" required>
+                <option value="">Pilih Jenis Kelamin</option>
+                <option value="P">Pria</option>
+                <option value="W">Wanita</option>
+            </select>
         </div>
 
-        <!-- Email -->
+        <!-- Usia -->
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" required>
+            <label for="usia_pengerajin" class="form-label">Usia</label>
+            <input type="number" class="form-control" id="usia_pengerajin" name="usia_pengerajin" placeholder="Masukkan Usia Pengerajin" required>
         </div>
 
         <!-- No Telepon -->
         <div class="mb-3">
-            <label for="no_telp" class="form-label">No Telepon</label>
-            <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="Masukkan Nomor Telepon" required>
+            <label for="telp_pengerajin" class="form-label">No Telepon</label>
+            <input type="text" class="form-control" id="telp_pengerajin" name="telp_pengerajin" placeholder="Masukkan No Telepon Pengerajin" required>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email_pengerajin" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email_pengerajin" name="email_pengerajin" placeholder="Masukkan Email Pengerajin" required>
+        </div>
+
+        <!-- Alamat -->
+        <div class="mb-3">
+            <label for="alamat_pengerajin" class="form-label">Alamat</label>
+            <textarea class="form-control" id="alamat_pengerajin" name="alamat_pengerajin" rows="3" placeholder="Masukkan Alamat Pengerajin" required></textarea>
         </div>
 
         <!-- Tombol Submit -->
@@ -56,14 +72,41 @@
     <!-- Validasi form sederhana dengan JavaScript -->
     <script>
         document.getElementById('createPengerajinForm').addEventListener('submit', function(e) {
-            // Contoh validasi dasar: memastikan nama tidak kosong
             const nama = document.getElementById('nama_pengerajin').value.trim();
-            if (nama === '') {
-                alert('Nama Pengerajin wajib diisi!');
+            if (!nama) {
+                alert('Nama Pengerajin tidak boleh kosong!');
                 e.preventDefault();
                 return false;
             }
-            // Validasi lainnya bisa ditambahkan di sini jika diperlukan
+            const usia = document.getElementById('usia_pengerajin').value;
+            if (usia < 0) {
+                alert('Usia tidak boleh negatif!');
+                e.preventDefault();
+                return false;
+            }
+            const telp = document.getElementById('telp_pengerajin').value.trim();
+            if (!telp) {
+                alert('No Telepon tidak boleh kosong!');
+                e.preventDefault();
+                return false;
+            }
+            if (telp.length < 10) {
+                alert('No Telepon harus lebih dari 10 digit!');
+                e.preventDefault();
+                return false;
+            }
+            const email = document.getElementById('email_pengerajin').value.trim();
+            if (!email) {
+                alert('Email tidak boleh kosong!');
+                e.preventDefault();
+                return false;
+            }
+            const alamat = document.getElementById('alamat_pengerajin').value.trim();
+            if (!alamat) {
+                alert('Alamat tidak boleh kosong!');
+                e.preventDefault();
+                return false;
+            }
         });
 
         console.log("Form Create Pengerajin loaded");

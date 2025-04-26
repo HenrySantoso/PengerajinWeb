@@ -17,11 +17,13 @@ class UsahaProduk extends Model
 
     public $timestamps = true; // Karena di migrasi ada timestamps (created_at, updated_at)
 
+    // Relasi ke Usaha
     public function usaha()
     {
         return $this->belongsTo(Usaha::class, 'usaha_id');
     }
 
+    // Relasi ke Produk
     public function produk()
     {
         return $this->belongsTo(Produk::class, 'produk_id');

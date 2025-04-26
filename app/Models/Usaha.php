@@ -10,7 +10,7 @@ class Usaha extends Model
     protected $fillable = [
         'kode_usaha',
         'nama_usaha',
-        'telepon_usaha',
+        'telp_usaha',
         'email_usaha',
         'deskripsi_usaha',
         'foto_usaha',
