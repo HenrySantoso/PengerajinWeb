@@ -98,7 +98,7 @@ class UsahaController extends Controller
         if ($request->hasFile('foto_usaha')) {
             // Hapus foto lama jika ada
             if ($usaha->foto_usaha) {
-                Storage::delete('public/' . $usaha->foto_usaha);
+                Storage::disk('public')->delete($usaha->foto_usaha);
             }
 
             // Mendapatkan nama asli file
@@ -113,8 +113,6 @@ class UsahaController extends Controller
             $data['foto_usaha'] = $usaha->foto_usaha;
         }
 
-        //dd($data);
-
         // Update data usaha
         $usaha->update($data);
 
@@ -127,6 +125,9 @@ class UsahaController extends Controller
     public function destroy($id)
     {
         $usaha = Usaha::findOrFail($id);
+        if ($usaha->foto_usaha) {
+            Storage::disk('public')->delete($usaha->foto_usaha);
+        }
         $usaha->delete();
 
         return redirect()->route('admin.usaha-index')
