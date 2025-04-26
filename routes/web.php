@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Guest\PublicKategoriProdukController;
+use App\Http\Controllers\Guest\PublicProdukController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -110,4 +112,7 @@ Route::get('about', [PageController::class, 'about'])->name('guest.about');
 Route::get('contact', [PageController::class, 'contact'])->name('guest.contact');
 Route::get('product', [PageController::class, 'products'])->name('guest.products');
 Route::get('single-product', [PageController::class, 'singleProduct'])->name('guest.single-product');
+
+// Guest tatah
+Route::get('/{slug}', [PublicProdukController::class, 'byCategory'])->name('products.byCategory');
 

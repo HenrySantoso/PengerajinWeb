@@ -10,13 +10,15 @@ class Pengerajin extends Model
     protected $fillable = [
         'kode_pengerajin',
         'nama_pengerajin',
-        'alamat',
-        'no_telp',
-        'email'
+        'jk_pengerajin',
+        'usia_pengerajin',
+        'telp_pengerajin',
+        'email_pengerajin',
+        'alamat_pengerajin',
     ];
 
-    public function usaha()
+    public function usahaPengerajin()
     {
-        return $this->hasMany(Usaha::class, 'pengerajin_id');
+        return $this->hasMany(UsahaPengerajin::class, 'pengerajin_id');
     }
 }

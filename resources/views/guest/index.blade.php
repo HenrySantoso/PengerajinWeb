@@ -52,15 +52,15 @@ https://templatemo.com/tm-571-hexashop
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
-                            <img src="assets/images/logo.png">
+                            <img src="assets/images/jogja.jpeg" alt="Logo" style="width: 55%;">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#men">Men's</a></li>
+                            {{-- <li class="scroll-to-section"><a href="#men">Aksesoris</a></li>
                             <li class="scroll-to-section"><a href="#women">Women's</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
+                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li> --}}
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
@@ -101,10 +101,10 @@ https://templatemo.com/tm-571-hexashop
                     <div class="left-content">
                         <div class="thumb">
                             <div class="inner-content">
-                                <h4>We Are Hexashop</h4>
-                                <span>Awesome, clean &amp; creative HTML5 Template</span>
+                                <h4>We Are Jogja</h4>
+                                <span>The place you need to buy something</span>
                                 <div class="main-border-button">
-                                    <a href="#">Purchase Now!</a>
+                                    <a href="#">Beli Sekarang!</a>
                                 </div>
                             </div>
                             <img src="assets/images/left-banner-image.jpg" alt="">
@@ -118,15 +118,15 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Women</h4>
-                                            <span>Best Clothes For Women</span>
+                                            <h4>Tatah</h4>
+                                            <span>Produk bagus untuk tatah</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
-                                                <h4>Women</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <h4>Tatah</h4>
+                                                <p>Tingkatkan hasil ukiranmu dengan tatah berkualitas tinggi!</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    {{-- <a href="{{ route('products.byCategory', ['slug' => $category->slug]) }}">Cari Disini</a> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -138,15 +138,15 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Men</h4>
-                                            <span>Best Clothes For Men</span>
+                                            <h4>Filigri</h4>
+                                            <span>Produk bagus untuk Filigri</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
-                                                <h4>Men</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <h4>Filigri</h4>
+                                                <p>Percantik karya kerajinanmu dengan bahan filigri berkualitas!</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#">Cari Disini</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -158,15 +158,15 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Kids</h4>
-                                            <span>Best Clothes For Kids</span>
+                                            <h4>Wedding RIng</h4>
+                                            <span>Produk bagus untuk wedding ring</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
-                                                <h4>Kids</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <h4>Wedding Ring</h4>
+                                                <p>Impian semua orang</p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#">Cari Disini</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,15 +178,15 @@ https://templatemo.com/tm-571-hexashop
                                 <div class="right-first-image">
                                     <div class="thumb">
                                         <div class="inner-content">
-                                            <h4>Accessories</h4>
-                                            <span>Best Trend Accessories</span>
+                                            <h4>Batu Akik</h4>
+                                            <span>Produk Bagus untuk Batu Akik</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4>Accessories</h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p>Temukan keindahan alami dalam setiap batu akik! </p>
                                                 <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
+                                                    <a href="#">Cari Disini</a>
                                                 </div>
                                             </div>
                                         </div>

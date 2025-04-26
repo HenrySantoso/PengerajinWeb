@@ -12,8 +12,8 @@ class JenisUsaha extends Model
         'nama_jenis_usaha',
     ];
 
-    public function usaha()
+    public function usahaJenis()
     {
-        return $this->hasMany(Usaha::class, 'jenis_usaha_id');
+        return $this->hasMany(UsahaJenis::class, 'jenis_usaha_id');
     }
 }

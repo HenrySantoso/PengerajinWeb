@@ -22,6 +22,6 @@ class Produk extends Model
 
     public function fotoProduk()
     {
-        return $this->hasMany(FotoProduk::class, 'foto_produk_id');
+        return $this->hasMany(FotoProduk::class, 'produk_id');
     }
 }

@@ -15,7 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('kode_usaha')->unique();
             $table->string('nama_usaha')->nullable();
+            $table->string('telp_usaha')->nullable();
+            $table->string('email_usaha')->nullable();
             $table->string('deskripsi_usaha')->nullable();
+            $table->string('foto_usaha')->nullable();
+            $table->string('link_gmap_usaha')->nullable();
+            $table->enum('status_usaha', ['aktif', 'non-aktif'])->default('aktif');
+
             $table->timestamps();
         });
     }

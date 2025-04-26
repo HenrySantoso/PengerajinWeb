@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('kode_pengerajin')->unique();
             $table->string('nama_pengerajin')->nullable();
-            $table->string('alamat')->nullable();
-            $table->string('no_telp')->nullable();
-            $table->string('email')->nullable();
+            $table->enum('jenis_kelamin', ['P', 'W'])->nullable();
+            $table->integer('usia_pengerajin')->nullable();
+            $table->string('telp_pengerajin')->nullable();
+            $table->string('email_pengerajin')->nullable();
+            $table->string('alamat_pengerajin')->nullable();
             $table->timestamps();
         });
     }
