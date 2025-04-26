@@ -12,13 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usaha_produk', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('usaha_id')->constrained('usaha')->onDelete('cascade');
             $table->foreignId('produk_id')->constrained('produk')->onDelete('cascade');
             $table->timestamps(); // optional, tapi biasanya berguna
 
-            //$table->unique(['usaha_id', 'produk_id']);
-
+            $table->primary(['usaha_id', 'produk_id'], 'usaha_produk_id'); // Optional: give a name to the composite key
         });
     }
 

@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usaha_jenis', function (Blueprint $table) {
-            $table->id();
+        Schema::create('usaha_pengerajin', function (Blueprint $table) {
             $table->foreignId('usaha_id')->constrained('usaha')->onDelete('cascade');
-            $table->foreignId('jenis_usaha_id')->constrained('jenis_usaha')->onDelete('cascade');
+            $table->foreignId('pengerajin_id')->constrained('pengerajin')->onDelete('cascade');
             $table->timestamps();
+
+            $table->primary(['usaha_id', 'pengerajin_id'], 'usaha_pengerajin_id');// Optional: give a name to the composite key
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usaha_jenis');
+        Schema::dropIfExists('usaha_pengerajin');
     }
 };
