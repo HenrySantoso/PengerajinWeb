@@ -48,15 +48,15 @@ class UsahaPengerajinController extends Controller
             ->with('success', 'Usaha Pengerajin berhasil ditambahkan.');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'usaha_id' => 'required|exists:usaha,id',
             'pengerajin_id' => 'required|exists:pengerajin,id',
         ]);
 
-        $usahaPengerajin = UsahaPengerajin::findOrFail($id);
-        $usahaPengerajin->update($data);
+        $usahaPengerajin = UsahaPengerajin::findOrFail($request->id);
+        $usahaPengerajin->update($request->all());
 
         return redirect()->route('admin.usaha_pengerajin-index')
             ->with('success', 'Usaha Pengerajin berhasil diperbarui.');
@@ -69,5 +69,6 @@ class UsahaPengerajinController extends Controller
         return redirect()->route('admin.usaha_pengerajin-index')
             ->with('success', 'Usaha Pengerajin berhasil dihapus.');
     }
+
 
 }

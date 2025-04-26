@@ -398,11 +398,11 @@ return [
         //     'url' => '#',
         // ],
         ['header' => 'MASTER DATA'],
-        [
-            'text' => 'Dashboard',
-            'url'  => 'admin/dashboard',
-            'icon' => 'fas fa-tachometer-alt', // tetap
-        ],
+        // [
+        //     'text' => 'Dashboard',
+        //     'url'  => 'admin/dashboard',
+        //     'icon' => 'fas fa-tachometer-alt', // tetap
+        // ],
         [
             'text' => 'Pengerajin',
             'url'  => 'admin/pengerajin',

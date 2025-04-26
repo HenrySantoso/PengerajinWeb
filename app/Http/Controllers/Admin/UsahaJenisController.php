@@ -48,19 +48,20 @@ class UsahaJenisController extends Controller
             ->with('success', 'Usaha Jenis berhasil ditambahkan.');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'usaha_id' => 'required|exists:usaha,id',
             'jenis_usaha_id' => 'required|exists:jenis_usaha,id',
         ]);
 
-        $usahaJenis = UsahaJenis::findOrFail($id);
-        $usahaJenis->update($data);
+        $usahaJenis = UsahaJenis::findOrFail($request->id);
+        $usahaJenis->update($request->all());
 
         return redirect()->route('admin.usaha_jenis-index')
             ->with('success', 'Usaha Jenis berhasil diperbarui.');
     }
+    
     public function destroy($id)
     {
         $usahaJenis = UsahaJenis::findOrFail($id);

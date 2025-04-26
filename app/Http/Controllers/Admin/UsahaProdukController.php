@@ -48,15 +48,15 @@ class UsahaProdukController extends Controller
             ->with('success', 'Usaha Produk berhasil ditambahkan.');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'usaha_id' => 'required|exists:usaha,id',
             'produk_id' => 'required|exists:produk,id',
         ]);
 
-        $usahaProduk = UsahaProduk::findOrFail($id);
-        $usahaProduk->update($data);
+        $usahaProduk = UsahaProduk::findOrFail($request->id);
+        $usahaProduk->update($request->all());
 
         return redirect()->route('admin.usaha_produk-index')
             ->with('success', 'Usaha Produk berhasil diperbarui.');
