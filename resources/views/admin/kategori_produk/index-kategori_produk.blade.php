@@ -19,7 +19,8 @@
 @stop
 
 @section('content')
-    <a href="{{ route('admin.kategori_produk-create') }}" class="btn btn-success">+ Tambah Kategori Produk</a>
+    <a href="{{ route('admin.kategori_produk-create') }}" class="btn btn-success btn-sm">
+        <i class="fas fa-add"></i> Tambah Kategori Produk</a>
     {{-- tambahkan jarak dan garis --}}
     <br>
     <hr color="#ccc">

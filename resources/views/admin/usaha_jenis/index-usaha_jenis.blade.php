@@ -19,7 +19,8 @@
 @stop
 
 @section('content')
-    <a href="{{ route('admin.usaha_jenis-create') }}" class="btn btn-success">+ Tambah Usaha Jenis</a>
+    <a href="{{ route('admin.usaha_jenis-create') }}" class="btn btn-success btn-sm">
+        <i class="fas fa-add"></i> Tambah Usaha Jenis</a>
     {{-- tambahkan jarak dan garis --}}
     <br>
     <hr color="#ccc">

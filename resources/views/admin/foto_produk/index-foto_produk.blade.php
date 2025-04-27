@@ -19,7 +19,8 @@
 @stop
 
 @section('content')
-    <a href="{{ route('admin.foto_produk-create') }}" class="btn btn-success">+ Tambah Foto Produk</a>
+    <a href="{{ route('admin.foto_produk-create') }}" class="btn btn-success btn-sm">
+        <i class="fas fa-plus"></i> Tambah Foto Produk</a>
     {{-- tambah jarak dan garis --}}
     <br>
     {{-- tambah jarak dan garis --}}

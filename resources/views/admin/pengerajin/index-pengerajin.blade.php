@@ -19,7 +19,8 @@
 @stop
 
 @section('content')
-    <a href="{{ route('admin.pengerajin-create') }}" class="btn btn-success">+ Tambah Pengerajin</a>
+    <a href="{{ route('admin.pengerajin-create') }}" class="btn btn-success btn-sm">
+        <i class="fas fa-add"></i> Tambah Pengerajin</a>
     {{-- tambahkan jarak dan garis --}}
     <br>
     <hr color="#ccc">

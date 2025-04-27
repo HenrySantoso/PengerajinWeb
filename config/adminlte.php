@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>SI</b>TokoPerak',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -154,8 +154,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -193,11 +193,11 @@ return [
     'classes_body' => '',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
+    'classes_content_wrapper' => 'content-wrapper bg-light',
     'classes_content_header' => '',
-    'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
-    'classes_sidebar_nav' => '',
+    'classes_content' => 'content bg-light',
+    'classes_sidebar' => 'sidebar-dark-indigo elevation-4',
+    'classes_sidebar_nav' => 'nav-pills nav-sidebar flex-column',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
@@ -299,15 +299,39 @@ return [
     */
 
     'menu' => [
+
         // Navbar items:
+        // [
+        //     'type' => 'navbar-search',
+        //     'text' => 'search',
+        //     'topnav_right' => true,
+        // ],
+        // [
+        //     'type' => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ],
+        // Topnav user menu
         [
-            'type' => 'navbar-search',
-            'text' => 'search',
+            'text' => 'User',
             'topnav_right' => true,
-        ],
-        [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
+            'icon' => 'fas fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Profile',
+                    'url' => 'admin/profile',
+                    'icon' => 'fas fa-id-badge',
+                ],
+                [
+                    'text' => 'Change Password',
+                    'url' => 'admin/settings',
+                    'icon' => 'fas fa-key',
+                ],
+                [
+                    'text' => 'Logout',
+                    'url' => 'logout/form',
+                    'icon' => 'fas fa-sign-out-alt',
+                ],
+            ],
         ],
 
         // Sidebar items:
@@ -327,22 +351,22 @@ return [
         //     'label' => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/profile',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'Keluar',
-            'url' => 'logout/form',
-            'icon' => 'fas fa-fw fa-sign-out-alt',
-        ],
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'url' => 'admin/profile',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url' => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
+        // [
+        //     'text' => 'Keluar',
+        //     'url' => 'logout/form',
+        //     'icon' => 'fas fa-fw fa-sign-out-alt',
+        // ],
         // [
         //     'text' => 'multilevel',
         //     'icon' => 'fas fa-fw fa-share',
@@ -405,47 +429,47 @@ return [
         // ],
         [
             'text' => 'Pengerajin',
-            'url'  => 'admin/pengerajin',
+            'url' => 'admin/pengerajin',
             'icon' => 'fas fa-users-cog', // ikon untuk pekerja atau pengelola
         ],
         [
             'text' => 'Jenis Usaha',
-            'url'  => 'admin/jenis-usaha',
+            'url' => 'admin/jenis-usaha',
             'icon' => 'fas fa-layer-group', // ikon untuk kategori/jenis
         ],
         [
             'text' => 'Usaha',
-            'url'  => 'admin/usaha',
+            'url' => 'admin/usaha',
             'icon' => 'fas fa-briefcase', // ikon untuk usaha/bisnis
         ],
         [
             'text' => 'Kategori Produk',
-            'url'  => 'admin/kategori-produk',
+            'url' => 'admin/kategori-produk',
             'icon' => 'fas fa-tags', // ikon untuk kategori/label
         ],
         [
             'text' => 'Produk',
-            'url'  => 'admin/produk',
+            'url' => 'admin/produk',
             'icon' => 'fas fa-box-open', // ikon untuk produk/barang
         ],
         [
             'text' => 'Foto Produk',
-            'url'  => 'admin/foto-produk',
+            'url' => 'admin/foto-produk',
             'icon' => 'fas fa-image', // ikon foto/gambar
         ],
         [
             'text' => 'Usaha Pengerajin',
-            'url'  => 'admin/usaha-pengerajin',
+            'url' => 'admin/usaha-pengerajin',
             'icon' => 'fas fa-briefcase', // ikon untuk usaha/pekerjaan
         ],
         [
             'text' => 'Usaha Jenis',
-            'url'  => 'admin/usaha-jenis',
+            'url' => 'admin/usaha-jenis',
             'icon' => 'fas fa-briefcase', // ikon untuk usaha/pekerjaan
         ],
         [
             'text' => 'Usaha Produk',
-            'url'  => 'admin/usaha-produk',
+            'url' => 'admin/usaha-produk',
             'icon' => 'fas fa-briefcase', // ikon untuk usaha/pekerjaan
         ],
 

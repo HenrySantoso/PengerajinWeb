@@ -20,7 +20,9 @@
 @stop
 
 @section('content')
-    <a href="{{ route('admin.usaha-create') }}" class="btn btn-success">+ Tambah Usaha</a>
+    <a href="{{ route('admin.usaha-create') }}" class="btn btn-success btn-sm">
+        <i class="fas fa-add"></i> Tambah Usaha
+    </a>
     {{-- tambahkan jarak --}}
     <br>
     {{-- tambahkan garis lurus --}}
@@ -57,7 +59,11 @@
                             No Image
                         @endif
                     </td>
-                    <td>{{ $usaha->link_gmap_usaha }}</td>
+                    <td>
+                        <a href="{{ $usaha->link_gmap_usaha }}" class="gmap-link" target="_blank">
+                            {{ $usaha->link_gmap_usaha }}
+                        </a>
+                    </td>
                     <td>
                         @if ($usaha->status_usaha == 'aktif')
                             <span class="badge bg-success">Aktif</span>
@@ -104,6 +110,52 @@
     {{-- ini soruce icon button --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
+    {{-- ini buat styling link gmap --}}
+    <style>
+        .gmap-link {
+            display: inline-block;
+            max-width: 200px;
+            /* Bebas, mau 150px, 200px, dll */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+        }
+    </style>
+
+    {{-- ini buat styling badge --}}
+    <style>
+        .badge {
+            font-size: 0.8rem;
+            padding: 0.5em 0.75em;
+            border-radius: 0.5rem;
+        }
+
+        .badge.bg-success {
+            background-color: #3bb357;
+        }
+
+        .badge.bg-secondary {
+            background-color: #6c757d;
+        }
+
+        .badge.bg-danger {
+            background-color: #dc3545;
+        }
+
+        .badge.bg-warning {
+            background-color: #ffc107;
+        }
+
+        .badge.bg-info {
+            background-color: #17a2b8;
+        }
+
+        .badge.bg-dark {
+            background-color: #343a40;
+        }
+    </style>
 @stop
 
 @section('js')
