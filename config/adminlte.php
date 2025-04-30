@@ -323,13 +323,8 @@ return [
                 ],
                 [
                     'text' => 'Change Password',
-                    'url' => 'admin/settings',
+                    'url' => 'admin/change-password',
                     'icon' => 'fas fa-key',
-                ],
-                [
-                    'text' => 'Logout',
-                    'url' => 'logout/form',
-                    'icon' => 'fas fa-sign-out-alt',
                 ],
             ],
         ],

@@ -7,6 +7,8 @@
     <title>Login - Admin</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-hexashop.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         body {
             height: 100vh;
@@ -109,26 +111,59 @@
             </div>
             <div class="form-group mb-4">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" required />
+                <div class="input-group">
+                    <input type="password" name="password" id="password" class="form-control" required />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                            <i class="fas fa-eye" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+            <div class="form-group mb-4">
+                <label for="remember">
+                    <input type="checkbox" name="remember" id="remember" />
+                    Remember Me
+                </label>
+            </div>
+            <div class="text-center mb-4">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
+            </div>
+
             <button type="submit" class="btn-modern w-100">Login</button>
 
-            <div class="text-center mt-4">
-                <span class="text-muted">Belum Punya akun?
-                    <a href="#" class="link-modern">Daftar</a>
-                </span>
-            </div>
             <div class="text-center mt-4">
                 <span class="text-muted">Lupa Password?
                     <a href="#" class="link-modern">Ubah Password</a>
                 </span>
             </div>
             <div class="text-center mt-4">
-                <a href="{{ route('guest.index') }}" class="d-block text-decoration-none text-secondary hover-link">←
+                <a href="{{ route('guest-index') }}" class="d-block text-decoration-none text-secondary hover-link">←
                     Kembali</a>
             </div>
         </form>
     </div>
 </body>
 
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('toggleIcon');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+
+        // Ganti iconnya
+        toggleIcon.classList.toggle('fa-eye');
+        toggleIcon.classList.toggle('fa-eye-slash');
+    });
+</script>
+
 </html>
+
+

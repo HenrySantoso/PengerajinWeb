@@ -23,7 +23,7 @@ class RoleCheck
         }
         // Cek apakah pengguna memiliki role yang sesuai
         if (Auth::user()->role !== $role) {
-            return redirect()->route('')
+            return redirect()->route('guest-index')
                 ->with('error', 'Akses ditolak. Anda tidak memiliki izin untuk mengakses halaman ini.');
         }
         // Jika pengguna memiliki role yang sesuai, lanjutkan ke request berikutnya

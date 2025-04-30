@@ -49,4 +49,10 @@ class PageController extends Controller
     {
         return view('guest.pages.products');
     }
+
+    public function contoh()
+    {
+        $kategoris = KategoriProduk::all();
+        return view('guest.pages.products-contoh', compact('kategoris'));
+    }
 }
