@@ -107,12 +107,13 @@ Route::put('admin/usaha-produk/update/{id}', [UsahaProdukController::class, 'upd
 Route::delete('admin/usaha-produk/destroy/{id}', [UsahaProdukController::class, 'destroy'])->name('admin.usaha_produk-destroy');
 
 //Guest
-Route::get('', [PageController::class, 'index'])->name('guest.index');
-Route::get('about', [PageController::class, 'about'])->name('guest.about');
-Route::get('contact', [PageController::class, 'contact'])->name('guest.contact');
-Route::get('product', [PageController::class, 'products'])->name('guest.products');
-Route::get('single-product', [PageController::class, 'singleProduct'])->name('guest.single-product');
+Route::get('', [PageController::class, 'index'])->name('guest-index');
+Route::get('about', [PageController::class, 'about'])->name('guest-about');
+Route::get('contact', [PageController::class, 'contact'])->name('guest-contact');
+Route::get('products', [PageController::class, 'products'])->name('guest-products');
+Route::get('single-product', [PageController::class, 'singleProduct'])->name('guest-single-product');
+Route::get('produk/kategori/{slug}', [PageController::class, 'productsByCategory'])->name('guest-productsByCategory');
 
-// Guest tatah
-Route::get('/{slug}', [PublicProdukController::class, 'byCategory'])->name('products.byCategory');
+
+
 

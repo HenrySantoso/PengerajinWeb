@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('deskripsi')->nullable();
             $table->integer('harga')->nullable();
             $table->integer('stok')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
