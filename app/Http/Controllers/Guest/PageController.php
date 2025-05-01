@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Models\KategoriProduk;
 use App\Models\Produk;
+use App\Models\FotoProduk;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -31,7 +32,7 @@ class PageController extends Controller
         return view('guest.pages.products', [
             'kategori' => $kategori,
             'produks' => $produks,
-            'kategoris' => $kategoris
+            'kategoris' => $kategoris,
         ]);
     }
 
@@ -48,9 +49,5 @@ class PageController extends Controller
     public function contact()
     {
         return view('guest.pages.contact');
-    }
-    public function products()
-    {
-        return view('guest.pages.products');
     }
 }
