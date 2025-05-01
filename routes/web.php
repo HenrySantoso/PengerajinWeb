@@ -32,7 +32,7 @@ Route::get('contact', [PageController::class, 'contact'])->name('guest-contact')
 Route::get('products', [PageController::class, 'products'])->name('guest-products');
 Route::get('single-product', [PageController::class, 'singleProduct'])->name('guest-single-product');
 Route::get('produk/kategori/{slug}', [PageController::class, 'productsByCategory'])->name('guest-productsByCategory');
-Route::get('contoh', [PageController::class, 'contoh'])->name('guest-kategori_produk');
+Route::get('contoh/{slug}', [PageController::class, 'contoh'])->name('guest-kategori_produk');
 
 
 Route::middleware(['role:admin'])->group(function () {

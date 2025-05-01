@@ -28,7 +28,11 @@ class PageController extends Controller
         $kategori = KategoriProduk::where('slug', $slug)->firstOrFail();
         $produks = Produk::where('kategori_produk_id', $kategori->id)->get();
 
-        return view('guest.pages.products', compact('kategori', 'produks', 'kategoris'));
+        return view('guest.pages.products', [
+            'kategori' => $kategori,
+            'produks' => $produks,
+            'kategoris' => $kategoris
+        ]);
     }
 
     public function singleProduct($slug)
@@ -48,11 +52,5 @@ class PageController extends Controller
     public function products()
     {
         return view('guest.pages.products');
-    }
-
-    public function contoh()
-    {
-        $kategoris = KategoriProduk::all();
-        return view('guest.pages.products-contoh', compact('kategoris'));
     }
 }
