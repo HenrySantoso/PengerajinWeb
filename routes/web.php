@@ -14,12 +14,7 @@ use App\Http\Controllers\Admin\JenisUsahaController;
 use App\Http\Controllers\Admin\UsahaPengerajinController;
 use App\Http\Controllers\Admin\UsahaJenisController;
 use App\Http\Controllers\Admin\UsahaProdukController;
-
 use App\Http\Controllers\Guest\PageController;
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 // Authentication Routes
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('loginForm');

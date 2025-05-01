@@ -8,8 +8,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>Contact Us</h2>
-                        <span>Awesome, clean &amp; creative HTML5 Template</span>
+                        <h2>Kontak Kami</h2>
                     </div>
                 </div>
             </div>
@@ -18,7 +17,7 @@
     <!-- ***** Main Banner Area End ***** -->
 
     <!-- ***** Contact Area Starts ***** -->
-    <div class="contact-us">
+    {{-- <div class="contact-us">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -59,11 +58,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ***** Contact Area Ends ***** -->
 
     <!-- ***** Subscribe Area Starts ***** -->
-    <div class="subscribe">
+    {{-- <div class="subscribe">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -111,7 +110,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ***** Subscribe Area Ends ***** -->
 
 @endsection

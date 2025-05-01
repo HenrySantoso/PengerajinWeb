@@ -19,22 +19,15 @@
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-hexashop.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl-carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}">
-    <!--
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    TemplateMo 571 Hexashop
-
-    https://templatemo.com/tm-571-hexashop
-
-    -->
 </head>
 
 <body>
-
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -53,23 +46,25 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="{{ route('guest-index') }}" class="logo">
-                            <img src="{{ asset('assets/images/jogja.jpeg') }}" height="80px" alt="logo">
+                            <img src="{{ asset('assets/images/jogja.png') }}" height="80px" alt="logo">
                         </a>
 
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="{{ route('guest-index') }}">Home</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('guest-index') }}">Beranda</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Kategori</a>
                                 <ul>
                                     @foreach ($kategoris as $kategori)
-                                        <li><a
-                                                href="{{ route('guest-productsByCategory', $kategori->slug) }}">{{ $kategori->nama_kategori_produk }}</a>
+                                        <li>
+                                            <a href="{{ route('guest-productsByCategory', $kategori->slug) }}">
+                                                {{ $kategori->nama_kategori_produk }}
+                                            </a>
                                         </li>
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="{{ route('guest-about') }}">Tentan Kami</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('guest-about') }}">Tentang Kami</a></li>
                             <li class="scroll-to-section"><a href="{{ route('guest-contact') }}">Kontak</a></li>
                             <li class="scroll-to-section"><a href="{{ route('loginForm') }}">Login</a></li>
                         </ul>
@@ -97,54 +92,53 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                            <img src="{{ asset('assets/images/jogja.png') }}" alt="Logo" height="80px">
                         </div>
                         <ul>
-                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a>
+                            <li><a href="#">59GX+957, JL. Watu Gateng, Prenggan, Kec. Kotagede, Kota Yogyakarta,
+                                    Daerah Istimewa Yogyakarta 55172</a>
                             </li>
-                            <li><a href="#">hexashop@company.com</a></li>
-                            <li><a href="#">010-020-0340</a></li>
+                            <li><a href="#">kotagedhe@gmail.com</a></li>
+                            <li><a href="#">088-098-202</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Shopping &amp; Categories</h4>
+                    <h4>Belanja &amp; Kategori</h4>
                     <ul>
-                        <li><a href="#">Men’s Shopping</a></li>
-                        <li><a href="#">Women’s Shopping</a></li>
-                        <li><a href="#">Kid's Shopping</a></li>
+                        @foreach ($randomKategoris as $kategori)
+                            <li>
+                                <a href="{{ route('guest-productsByCategory', $kategori->slug) }}">
+                                    {{ $kategori->nama_kategori_produk }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Useful Links</h4>
+                    <h4>Informasi Kami</h4>
                     <ul>
-                        <li><a href="#">Homepage</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ route('guest-index') }}">Beranda</a></li>
+                        <li><a href="{{ route('guest-about') }}">Tentang Kami</a></li>
+                        <li><a href="{{ route('guest-contact') }}">Kontak Kami</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Help &amp; Information</h4>
+                    <h4>Bantuan &amp; Pertanyaan</h4>
                     <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Tracking ID</a></li>
+                        <li><a href="#">Bantuan</a></li>
+                        <li><a href="#">Pertanyaan</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
-                            <br>Design: <a href="https://templatemo.com" target="_parent"
-                                title="free css templates">TemplateMo</a>
+                        <p>Copyright © 2025 Toko Perak Kotagedhe. All rights reserved.</p>
                         </p>
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>

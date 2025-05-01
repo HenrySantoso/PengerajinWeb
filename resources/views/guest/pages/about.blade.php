@@ -7,8 +7,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>About Our Company</h2>
-                        <span>Awesome, clean &amp; creative HTML5 Template</span>
+                        <h2>Tentang Kami</h2>
                     </div>
                 </div>
             </div>
@@ -16,7 +15,7 @@
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
-    <!-- ***** About Area Starts ***** -->
+    {{-- <!-- ***** About Area Starts ***** -->
     <div class="about-us">
         <div class="container">
             <div class="row">
@@ -210,6 +209,6 @@
             </div>
         </div>
     </div>
-    <!-- ***** Subscribe Area Ends ***** -->
+    <!-- ***** Subscribe Area Ends ***** --> --}}
 
 @endsection

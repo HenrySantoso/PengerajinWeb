@@ -10,8 +10,8 @@
                     <div class="left-content">
                         <div class="thumb">
                             <div class="inner-content">
-                                <h4>We Are Jogja</h4>
-                                <span>The place you need to buy something</span>
+                                <h4>Jogja Istimewah</h4>
+                                <span>Temukan produk-produk istimewah kami!</span>
                                 <div class="main-border-button">
                                     <a href="#">Beli Sekarang!</a>
                                 </div>
@@ -23,7 +23,7 @@
                 <div class="col-lg-6">
                     <div class="right-content">
                         <div class="row">
-                            @foreach ($kategoris->take(4) as $kategori)
+                            @foreach ($randomKategoris as $kategori)
                                 <div class="col-lg-6">
                                     <div class="right-first-image">
                                         <div class="thumb">
@@ -106,7 +106,7 @@
     </section>
     <!-- ***** Produk Area Ends ***** -->
 
-    <!-- ***** Social Area Starts ***** -->
+    {{-- <!-- ***** Social Area Starts ***** -->
     <section class="section" id="social">
         <div class="container">
             <div class="row">
@@ -246,5 +246,5 @@
             </div>
         </div>
     </div>
-    <!-- ***** Subscribe Area Ends ***** -->
+    <!-- ***** Subscribe Area Ends ***** --> --}}
 @endsection
