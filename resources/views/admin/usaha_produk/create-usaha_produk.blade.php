@@ -54,6 +54,25 @@
                 e.preventDefault();
                 return false;
             }
+            // Contoh validasi dasar: memastikan usaha_id tidak kosong
+            if (document.getElementById('usaha_id').value.trim() === '') {
+                alert('Usaha wajib dipilih!');
+                e.preventDefault();
+                return false;
+            }
+
+            // usaha_id dan produk_id tidak boleh sama dengan data sebelumnya
+            var usahaId = parseInt(document.getElementById('usaha_id').value);
+            var jenisUsahaId = parseInt(document.getElementById('produk_id').value);
+            var existingUsahaId = {{ $existingUsahaId ?? 'null' }};
+            var existingProdukId = {{ $existingProdukId ?? 'null' }};
+
+            if (usahaId === existingUsahaId && jenisUsahaId === existingProdukId) {
+                alert('Data sudah ada sebelumnya!');
+                e.preventDefault();
+                return false;
+            }
+
 
         });
 

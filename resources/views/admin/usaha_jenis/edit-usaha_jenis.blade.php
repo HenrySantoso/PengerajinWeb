@@ -30,7 +30,8 @@
                 <select class="form-control" id="jenis_usaha_id" name="jenis_usaha_id" required>
                     <option value="">Pilih Kode jenis_usaha</option>
                     @foreach ($jenisUsahas as $jenis_usaha)
-                        <option value="{{ $jenis_usaha->id }}" {{ $usahaJenis->jenis_usaha_id == $jenis_usaha->id ? 'selected' : '' }}>
+                        <option value="{{ $jenis_usaha->id }}"
+                            {{ $usahaJenis->jenis_usaha_id == $jenis_usaha->id ? 'selected' : '' }}>
                             {{ $jenis_usaha->nama_jenis_usaha }}</option>
                     @endforeach
                 </select>
@@ -52,6 +53,31 @@
     <script>
         // Contoh validasi sederhana sebelum submit
         document.getElementById('editUsahaJenisForm">').addEventListener('submit', function(e) {
+            // Contoh validasi dasar: memastikan usaha tidak kosong
+            if (document.getElementById('usaha_id').value.trim() === '') {
+                alert('Nama Usaha wajib dipilih!');
+                e.preventDefault();
+                return false;
+            }
+
+            // Contoh validasi dasar: memastikan jenis usaha tidak kosong
+            if (document.getElementById('jenis_usaha_id').value.trim() === '') {
+                alert('Kode Jenis Usaha wajib dipilih!');
+                e.preventDefault();
+                return false;
+            }
+
+            //usaha_id dan jenis_usaha_id tidak boleh sama dengan data sebelumnya
+            var usahaId = parseInt(document.getElementById('usaha_id').value);
+            var jenisUsahaId = parseInt(document.getElementById('jenis_usaha_id').value);
+            var existingUsahaId = {{ $usahaJenis->usaha_id }};
+            var existingJenisUsahaId = {{ $usahaJenis->jenis_usaha_id }};
+
+            if (usahaId === existingUsahaId && jenisUsahaId === existingJenisUsahaId) {
+                alert('Usaha dan Jenis Usaha tidak boleh sama dengan data sebelumnya!');
+                e.preventDefault();
+                return false;
+            }
 
         });
         console.log("Form Edit Daftar Produk loaded");

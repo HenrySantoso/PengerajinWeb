@@ -9,7 +9,8 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('admin.usaha_pengerajin-update', $usahaPengerajin->id) }}" method="POST" id="editUsahaPengerajinForm">
+        <form action="{{ route('admin.usaha_pengerajin-update', $usahaPengerajin->id) }}" method="POST"
+            id="editUsahaPengerajinForm">
             @csrf
             @method('PUT')
             <!-- Nama Usaha -->
@@ -18,7 +19,8 @@
                 <select class="form-control" id="usaha_id" name="usaha_id" required>
                     <option value="">Pilih Usaha</option>
                     @foreach ($usahas as $usaha)
-                        <option value="{{ $usaha->id }}" {{ $usahaPengerajin->usaha_id == $usaha->id ? 'selected' : '' }}>
+                        <option value="{{ $usaha->id }}"
+                            {{ $usahaPengerajin->usaha_id == $usaha->id ? 'selected' : '' }}>
                             {{ $usaha->nama_usaha }}</option>
                     @endforeach
                 </select>
@@ -30,7 +32,8 @@
                 <select class="form-control" id="pengerajin_id" name="pengerajin_id" required>
                     <option value="">Pilih Pengerajin</option>
                     @foreach ($pengerajins as $pengerajin)
-                        <option value="{{ $pengerajin->id }}" {{ $usahaPengerajin->pengerajin_id == $pengerajin->id ? 'selected' : '' }}>
+                        <option value="{{ $pengerajin->id }}"
+                            {{ $usahaPengerajin->pengerajin_id == $pengerajin->id ? 'selected' : '' }}>
                             {{ $pengerajin->nama_pengerajin }}</option>
                     @endforeach
                 </select>
@@ -61,6 +64,18 @@
             if (!pengerajinId) {
                 alert('Pengerajin tidak boleh kosong!');
                 e.preventDefault();
+            }
+
+            //usaha_id dan pengerajin_id tidak boleh sama dengan data sebelumnya
+            var usahaId = parseInt(document.getElementById('usaha_id').value);
+            var jenisUsahaId = parseInt(document.getElementById('pengerajin_id').value);
+            var existingUsahaId = {{ $usahaJenis->usaha_id }};
+            var existingPengerajinId = {{ $usahaJenis->pengerajin_id }};
+
+            if (usahaId === existingUsahaId && jenisUsahaId === existingPengerajinId) {
+                alert('Usaha dan Pengerajin tidak boleh sama dengan data sebelumnya!');
+                e.preventDefault();
+                return false;
             }
         });
         console.log("Form Edit Usaha Pengerajin loaded");

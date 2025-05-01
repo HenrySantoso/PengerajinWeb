@@ -52,7 +52,30 @@
     <script>
         // Contoh validasi sederhana sebelum submit
         document.getElementById('editUsahaProdukForm').addEventListener('submit', function(e) {
+            const usahaId = document.getElementById('usaha_id').value.trim();
+            const produkId = document.getElementById('produk_id').value.trim();
+            if (!usahaId) {
+                alert('Nama Usaha wajib dipilih!');
+                e.preventDefault();
+                return false;
+            }
+            if (!produkId) {
+                alert('Nama Produk wajib dipilih!');
+                e.preventDefault();
+                return false;
+            }
 
+            //usaha_id dan produk_id tidak boleh sama dengan data sebelumnya
+            var usahaId = parseInt(document.getElementById('usaha_id').value);
+            var jenisUsahaId = parseInt(document.getElementById('produk_id').value);
+            var existingUsahaId = {{ $usahaJenis->usaha_id }};
+            var existingProdukId = {{ $usahaJenis->produk_id }};
+
+            if (usahaId === existingUsahaId && jenisUsahaId === existingProdukId) {
+                alert('Usaha dan Produk tidak boleh sama dengan data sebelumnya!');
+                e.preventDefault();
+                return false;
+            }
         });
         console.log("Form Edit Daftar Produk loaded");
     </script>
