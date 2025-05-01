@@ -10,26 +10,27 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
 
-    <title>Hexashop Ecommerce HTML CSS Template</title>
+    <title>Toko Perak Kotagedhe</title>
 
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.css') }}">
-
-
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-hexashop.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/css/owl-carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}">
     <!--
 
-TemplateMo 571 Hexashop
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-https://templatemo.com/tm-571-hexashop
+    TemplateMo 571 Hexashop
 
--->
+    https://templatemo.com/tm-571-hexashop
+
+    -->
 </head>
 
 <body>
@@ -51,12 +52,13 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/jogja.jpeg" height="80px" alt="logo">
+                        <a href="{{ route('guest-index') }}" class="logo">
+                            <img src="{{ asset('assets/images/jogja.jpeg') }}" height="80px" alt="logo">
                         </a>
 
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+                            <li class="scroll-to-section"><a href="{{ route('guest-index') }}">Home</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Kategori</a>
                                 <ul>
@@ -67,7 +69,8 @@ https://templatemo.com/tm-571-hexashop
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('guest-about') }}">Tentan Kami</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('guest-contact') }}">Kontak</a></li>
                             <li class="scroll-to-section"><a href="{{ route('loginForm') }}">Login</a></li>
                         </ul>
                         <a class='menu-trigger'>

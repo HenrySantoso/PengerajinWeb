@@ -1,5 +1,5 @@
 @extends('guest.layouts.main')
-@section('title', 'Produk')
+@section('title', 'Berbagai Macam Produk')
 @section('content')
 
     <!-- ***** Main Banner Area Start ***** -->
@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>Check Our Products</h2>
-                        <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
+                        <h2>Temukan Produk Favoritmu!</h2>
+                        <span>Pilihan lengkap & harga terbaik hanya di toko kami</span>
                     </div>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                             <div class="thumb">
                                 <div class="hover-content">
                                     <ul>
-                                        <li><a href="{{ route('guest-singleProduct', $produk->id) }}"><i class="fa fa-eye"></i></a>
+                                        <li><a href="{{ route('guest-singleProduct', $produk->slug) }}"><i class="fa fa-eye"></i></a>
                                         </li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href=""><i class="fa fa-star"></i></a></li>
+                                        <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <img src="{{ asset('storage/' .  $produk->fotoProduk->first()->file_foto_produk) }}" alt="{{ $produk->nama_produk }}">
@@ -62,5 +62,4 @@
         </div>
     </section>
     <!-- ***** Products Area Ends ***** -->
-
 @endsection

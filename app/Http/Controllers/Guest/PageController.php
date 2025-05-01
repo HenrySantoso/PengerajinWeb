@@ -10,17 +10,14 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function indexs()
-    {
-        $kategoris = KategoriProduk::all();
-        $kategori = KategoriProduk::latest()->first();
-        return view('index', compact('kategoris', 'kategori'));
-    }
-
     public function index()
     {
         $kategoris = KategoriProduk::all();
-        return view('guest.pages.index', compact('kategoris'));
+        $produks = Produk::with('kategoriProduk', 'fotoProduk')->get();
+        return view('guest.pages.index', [
+            'produks' => $produks,
+            'kategoris' => $kategoris,
+        ]);
     }
 
     public function productsByCategory($slug)
@@ -38,16 +35,22 @@ class PageController extends Controller
 
     public function singleProduct($slug)
     {
+        $kategoris = KategoriProduk::all();
         $produk = Produk::where('slug', $slug)->firstOrFail();
-        return view('guest.pages.single-product', compact('produk'));
+        return view('guest.pages.single-product',[
+            'produk' => $produk,
+            'kategoris' => $kategoris,
+        ]);
     }
 
     public function about()
     {
-        return view('guest.pages.about');
+        $kategoris = KategoriProduk::all();
+        return view('guest.pages.about', compact('kategoris'));
     }
     public function contact()
     {
-        return view('guest.pages.contact');
+        $kategoris = KategoriProduk::all();
+        return view('guest.pages.contact', compact('kategoris'));
     }
 }
