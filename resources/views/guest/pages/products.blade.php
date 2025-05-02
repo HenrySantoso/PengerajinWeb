@@ -38,8 +38,8 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="{{ route('guest-singleProduct', $produk->slug) }}"><i
-                                                        class="fa fa-eye"></i></a>
+                                            <li><a href="{{ route('guest-singleProduct', $produk->slug) }}">
+                                                <i class="fa fa-eye"></i></a>
                                             </li>
                                             <li><a href=""><i class="fa fa-star"></i></a></li>
                                             <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
