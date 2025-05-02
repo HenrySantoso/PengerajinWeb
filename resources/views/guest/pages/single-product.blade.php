@@ -61,7 +61,7 @@
                             <li><i class="fa fa-star"></i></li>
                         </ul>
                         <p>{{ $produk->deskripsi }}</p>
-                        <div class="quantity-content">
+                        {{-- <div class="quantity-content">
                             <div class="left-content">
                                 <h6>Jumlah pesanan</h6>
                             </div>
@@ -79,7 +79,7 @@
                             <div class="main-border-button">
                                 <div class="main-border-button"><a href="#">Add To Cart</a></div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
