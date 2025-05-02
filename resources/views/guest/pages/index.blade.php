@@ -43,7 +43,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img src="assets/images/baner-right-image-04.jpg"
+                                            <img src="{{ asset('assets/images/' . $kategori->slug . '.jpg') }}"
                                                 alt="{{ $kategori->nama_kategori_produk }}">
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                 <div class="col-lg-12">
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
-                            @foreach ($produks->take(4) as $produk)
+                            @foreach ($randomProduks as $produk)
                                 <div class="item">
                                     <div class="thumb">
                                         <div class="hover-content">

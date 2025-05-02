@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\KategoriProduk;
+use Illuminate\Support\Str;
 
 class ProdukController extends Controller
 {
@@ -67,6 +68,9 @@ class ProdukController extends Controller
             'harga' => 'required|integer',
             'stok' => 'required|integer',
         ]);
+
+        // Generate slug dari nama kategori
+        $data['slug'] = Str::slug($data['nama_produk']);
 
         // Update data produk di database
         Produk::where('id', $id)->update($data);

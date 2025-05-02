@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\KategoriProduk; // Pastikan model JenisUsaha sudah dibuat
+use Illuminate\Support\Str;
 
 class KategoriProdukController extends Controller
 {
@@ -52,6 +53,9 @@ class KategoriProdukController extends Controller
             'kode_kategori_produk' => 'required|string|max:255',
             'nama_kategori_produk' => 'required|string|max:255',
         ]);
+
+        // Generate slug dari nama kategori
+        $data['slug'] = Str::slug($data['nama_kategori_produk']);
 
         // Update data ke database
         KategoriProduk::where('id', $id)->update($data);
