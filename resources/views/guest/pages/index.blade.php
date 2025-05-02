@@ -44,7 +44,8 @@
                                                 </div>
                                             </div>
                                             <img src="{{ asset('assets/images/' . $kategori->slug . '.jpg') }}"
-                                                alt="{{ $kategori->nama_kategori_produk }}" class="fixed-width-img">
+                                                alt="{{ $kategori->nama_kategori_produk }}" class="fixed-width-img"
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/kategori-default.jpg') }}';">
                                         </div>
                                     </div>
                                 </div>
@@ -85,13 +86,9 @@
                                                 <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
-                                        @php
-                                            $foto = $produk->fotoProduk->first();
-                                            $imagePath = $foto
-                                                ? 'storage/' . $foto->file_foto_produk
-                                                : 'images/default.jpg';
-                                        @endphp
-                                        <img src="{{ asset($imagePath) }}" alt="{{ $produk->nama_produk }}">
+                                        <img src="{{ asset('storage/' . optional($produk->fotoProduk->first())->file_foto_produk) }}"
+                                            alt="{{ $produk->nama_produk }}"
+                                            onerror="this.onerror=null;this.src='{{ asset('images/produk-default.jpg') }}';">
                                     </div>
                                     <div class="down-content">
                                         <h4>{{ $produk->nama_produk }}</h4>
@@ -256,8 +253,9 @@
     <style>
         .fixed-width-img {
             width: auto;
-            height: 320px;
-            /* keeps aspect ratio */
+            height: 316px;
+            object-fit: cover;
+            /* optional: crops to fit nicely */
         }
     </style>
 @endsection
