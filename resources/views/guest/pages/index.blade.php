@@ -44,7 +44,7 @@
                                                 </div>
                                             </div>
                                             <img src="{{ asset('assets/images/' . $kategori->slug . '.jpg') }}"
-                                                alt="{{ $kategori->nama_kategori_produk }}">
+                                                alt="{{ $kategori->nama_kategori_produk }}" class="fixed-width-img">
                                         </div>
                                     </div>
                                 </div>
@@ -85,8 +85,13 @@
                                                 <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
-                                        <img src="{{ asset('storage/' . $produk->fotoProduk->first()->file_foto_produk) }}"
-                                            alt="{{ $produk->nama_produk }}">
+                                        @php
+                                            $foto = $produk->fotoProduk->first();
+                                            $imagePath = $foto
+                                                ? 'storage/' . $foto->file_foto_produk
+                                                : 'images/default.jpg';
+                                        @endphp
+                                        <img src="{{ asset($imagePath) }}" alt="{{ $produk->nama_produk }}">
                                     </div>
                                     <div class="down-content">
                                         <h4>{{ $produk->nama_produk }}</h4>
@@ -247,4 +252,12 @@
         </div>
     </div>
     <!-- ***** Subscribe Area Ends ***** --> --}}
+
+    <style>
+        .fixed-width-img {
+            width: auto;
+            height: 320px;
+            /* keeps aspect ratio */
+        }
+    </style>
 @endsection
