@@ -9,14 +9,14 @@
                 <div class="col-lg-6">
                     <div class="left-content">
                         <div class="thumb">
-                            <div class="inner-content">
+                            <div class="inner-content" >
                                 <h4>Jogja Istimewah</h4>
                                 <span>Temukan produk-produk istimewah kami!</span>
                                 <div class="main-border-button">
                                     <a href="#">Beli Sekarang!</a>
                                 </div>
                             </div>
-                            <img src="assets/images/left-banner-image.jpg" alt="">
+                            <img src="assets/images/malioboro2.jpg" alt="Keraton Yogyakarta" width="790" height="688">
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="hover-content">
                                                 <div class="inner">
-                                                    <h4>Accessories</h4>
+                                                    <h4>{{ $kategori->nama_kategori_produk }}</h4>
                                                     <!-- Ini bisa juga diganti kalau mau lebih dinamis -->
                                                     <p>Temukan keindahan alami dalam setiap
                                                         {{ strtolower($kategori->nama_kategori_produk) }}!</p>
@@ -45,7 +45,8 @@
                                             </div>
                                             <img src="{{ asset('assets/images/' . $kategori->slug . '.jpg') }}"
                                                 alt="{{ $kategori->nama_kategori_produk }}" class="fixed-width-img"
-                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/kategori-default.jpg') }}';">
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/kategori-default.jpg') }}';"
+                                                width="385" height="330">
                                         </div>
                                     </div>
                                 </div>
@@ -250,12 +251,5 @@
     </div>
     <!-- ***** Subscribe Area Ends ***** --> --}}
 
-    <style>
-        .fixed-width-img {
-            width: auto;
-            height: 316px;
-            object-fit: cover;
-            /* optional: crops to fit nicely */
-        }
-    </style>
+
 @endsection
