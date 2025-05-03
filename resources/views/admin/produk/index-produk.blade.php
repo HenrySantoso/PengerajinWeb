@@ -49,18 +49,23 @@
                     <td>
                         <a href="{{ route('admin.produk-edit', $produk->id) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-edit"></i></a>
-                        <form action="{{ route('admin.produk-destroy', $produk->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('admin.produk-destroy', $produk->id) }}" method="POST"
+                            style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" title="Hapus Usaha"
-                            onclick="return confirm('Anda yakin ingin menghapus?')">
-                            <i class="fas fa-trash"></i>
+                                onclick="return confirm('Anda yakin ingin menghapus?')">
+                                <i class="fas fa-trash"></i>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 @stop
 
 @section('css')
@@ -99,6 +104,18 @@
                     }, // 👉 Kolom Foto dan Actions tidak bisa sort
                 ]
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const logoutBtn = document.getElementById('logout-button');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('logout-form').submit();
+                });
+            }
         });
     </script>
 @stop

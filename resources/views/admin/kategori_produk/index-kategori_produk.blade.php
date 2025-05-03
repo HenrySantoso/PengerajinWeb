@@ -47,8 +47,8 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" title="Hapus Usaha"
-                            onclick="return confirm('Anda yakin ingin menghapus?')">
-                            <i class="fas fa-trash"></i>
+                                onclick="return confirm('Anda yakin ingin menghapus?')">
+                                <i class="fas fa-trash"></i>
                         </form>
                     </td>
                 </tr>
@@ -93,6 +93,18 @@
                     }, // 👉 Kolom Foto dan Actions tidak bisa sort
                 ]
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const logoutBtn = document.getElementById('logout-button');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('logout-form').submit();
+                });
+            }
         });
     </script>
 @stop

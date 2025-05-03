@@ -72,6 +72,10 @@
             @endforeach
         </tbody>
     </table>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 @stop
 
 @section('css')
@@ -110,6 +114,18 @@
                     }, // 👉 Kolom Foto dan Actions tidak bisa sort
                 ]
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const logoutBtn = document.getElementById('logout-button');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('logout-form').submit();
+                });
+            }
         });
     </script>
 @stop
