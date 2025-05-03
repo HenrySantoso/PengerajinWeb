@@ -66,17 +66,6 @@
                 e.preventDefault();
             }
 
-            //usaha_id dan pengerajin_id tidak boleh sama dengan data sebelumnya
-            var usahaId = parseInt(document.getElementById('usaha_id').value);
-            var jenisUsahaId = parseInt(document.getElementById('pengerajin_id').value);
-            var existingUsahaId = {{ $usahaJenis->usaha_id }};
-            var existingPengerajinId = {{ $usahaJenis->pengerajin_id }};
-
-            if (usahaId === existingUsahaId && jenisUsahaId === existingPengerajinId) {
-                alert('Usaha dan Pengerajin tidak boleh sama dengan data sebelumnya!');
-                e.preventDefault();
-                return false;
-            }
         });
         console.log("Form Edit Usaha Pengerajin loaded");
     </script>
