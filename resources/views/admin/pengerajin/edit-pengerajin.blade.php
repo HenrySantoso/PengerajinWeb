@@ -28,13 +28,19 @@
 
             <!-- Jenis Kelamin -->
             <div class="form-group mb-3">
-                <label for="jk_pengerajin">Jenis Kelamin</label>
-                <select class="form-select" id="jk_pengerajin" name="jk_pengerajin" required>
-                    <option value="">Pilih Jenis Kelamin</option>
-                    <option value="P" {{ $pengerajin->jk_pengerajin == 'P' ? 'selected' : '' }}>Pria</option>
-                    <option value="W" {{ $pengerajin->jk_pengerajin == 'W' ? 'selected' : '' }}>Wanita</option>
-                </select>
+                <label for="jk_pengerajin" class="form-label d-block">Jenis Kelamin</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="jk_pengerajin" id="jk_pria" value="P"
+                        {{ $pengerajin->jk_pengerajin == 'P' ? 'checked' : '' }} required>
+                    <label class="form-check-label" for="jk_pria">Pria</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="jk_pengerajin" id="jk_wanita" value="W"
+                        {{ $pengerajin->jk_pengerajin == 'W' ? 'checked' : '' }} required>
+                    <label class="form-check-label" for="jk_wanita">Wanita</label>
+                </div>
             </div>
+
 
             <!-- Usia -->
             <div class="form-group mb-3">
@@ -60,8 +66,7 @@
             <!-- Alamat -->
             <div class="form-group mb-3">
                 <label for="alamat_pengerajin">Alamat</label>
-                <textarea class="form-control" id="alamat_pengerajin" name="alamat_pengerajin" rows="3"
-                    required>{{ old('alamat_pengerajin', $pengerajin->alamat_pengerajin) }}</textarea>
+                <textarea class="form-control" id="alamat_pengerajin" name="alamat_pengerajin" rows="3" required>{{ old('alamat_pengerajin', $pengerajin->alamat_pengerajin) }}</textarea>
             </div>
 
             <!-- Tombol Submit -->
