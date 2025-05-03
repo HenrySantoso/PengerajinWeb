@@ -326,6 +326,14 @@ return [
                     'url' => 'admin/change-password',
                     'icon' => 'fas fa-key',
                 ],
+                [
+                    'text' => 'Logout',
+                    'url' => '#',
+                    'icon' => 'fas fa-sign-out-alt',
+                    // 'method' => 'POST',
+                    // 'action' => 'logout',
+                    'id' => 'logout-button',
+                ]
             ],
         ],
 

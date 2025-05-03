@@ -3,44 +3,66 @@
 @section('title', 'Profile')
 
 @section('content_header')
-    <h1>Profile</h1>
+    <h1><strong>Profile</strong></h1>
+
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row justify-content-left">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">User Information</h5>
-                    <p class="card-text"><strong>Name:</strong> {{ Auth::user()->username }}</p>
-                    <p class="card-text"><strong>Email:</strong> {{ Auth::user()->email }}</p>
-                    <!-- Add more user information as needed -->
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">User Information</h5>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <!-- Card for logout button -->
-            <div class="card">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Actions</h5>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-danger btn-block">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </button>
-                    </form>
+                <div class="card-body p-0">
+                    <table class="table table-bordered mb-0">
+                        <tbody>
+                            <tr>
+                                <th style="width: 30%;">Name</th>
+                                <td>{{ Auth::user()->username }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ Auth::user()->email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Role</th>
+                                <td>{{ Auth::user()->role ?? 'User' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Registered At</th>
+                                <td>{{ Auth::user()->created_at->format('d M Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last Login</th>
+                                <td>{{ Auth::user()->last_login_at ?? 'Never' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 @stop
 
 @section('css')
-    <!-- Custom CSS for profile page -->
     <link rel="stylesheet" href="/css/custom.css">
 @stop
 
 @section('js')
-    <!-- Custom JS for profile page -->
-    <script> console.log("Profile page loaded"); </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const logoutBtn = document.getElementById('logout-button');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('logout-form').submit();
+                });
+            }
+        });
+    </script>
 @stop
