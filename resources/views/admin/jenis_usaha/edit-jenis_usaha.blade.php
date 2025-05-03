@@ -21,9 +21,9 @@
 
             <!-- Nama Jenis Usaha -->
             <div class="form-group mb-3">
-                <label for="nama_usaha">Nama Jenis Usaha</label>
-                <input type="text" class="form-control" id="nama_usaha" name="nama_usaha"
-                    value="{{ old('nama_usaha', $jenisUsaha->nama_usaha) }}" required>
+                <label for="nama_jenis_usaha">Nama Jenis Usaha</label>
+                <input type="text" class="form-control" id="nama_jenis_usaha" name="nama_jenis_usaha"
+                    value="{{ old('nama_usaha', $jenisUsaha->nama_jenis_usaha) }}" required>
             </div>
 
             <!-- Tombol Submit -->
@@ -42,7 +42,7 @@
     <script>
         // Contoh validasi sederhana sebelum submit
         document.getElementById('editJenisUsahaForm').addEventListener('submit', function(e) {
-            const nama = document.getElementById('nama_usaha').value.trim();
+            const nama = document.getElementById('nama_jenis_usaha').value.trim();
             if (!nama) {
                 alert('Nama usaha tidak boleh kosong!');
                 e.preventDefault();
