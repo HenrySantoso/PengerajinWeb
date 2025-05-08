@@ -64,8 +64,7 @@
             if (!pengerajinId) {
                 alert('Pengerajin tidak boleh kosong!');
                 e.preventDefault();
-            }
-
+            } 
         });
         console.log("Form Edit Usaha Pengerajin loaded");
     </script>

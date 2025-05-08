@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>SI</b>TokoPerak',
+    'logo' => '<b>TekoPerakku<b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -431,7 +431,7 @@ return [
         //     'icon' => 'fas fa-tachometer-alt', // tetap
         // ],
         [
-            'text' => 'Pengerajin',
+            'text' => 'Pengrajin',
             'url' => 'admin/pengerajin',
             'icon' => 'fas fa-users-cog', // ikon untuk pekerja atau pengelola
         ],

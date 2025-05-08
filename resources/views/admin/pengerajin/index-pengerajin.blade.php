@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Pengerajin')
+@section('title', 'Pengrajin')
 
 @section('content_header')
     <h1
@@ -14,13 +14,13 @@
     align-items: center;
     gap: 1px;
 ">
-        <i class="fas fa-user"></i>Data Pengerajin
+        <i class="fas fa-user"></i>Data Pengrajin
     </h1>
 @stop
 
 @section('content')
     <a href="{{ route('admin.pengerajin-create') }}" class="btn btn-success btn-sm">
-        <i class="fas fa-add"></i> Tambah Pengerajin</a>
+        <i class="fas fa-add"></i> Tambah Pengrajin</a>
     {{-- tambahkan jarak dan garis --}}
     <br>
     <hr color="#ccc">

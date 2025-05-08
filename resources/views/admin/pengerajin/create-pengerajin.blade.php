@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Create Data Pengerajin')
+@section('title', 'Create Data Pengrajin')
 
 @section('content_header')
-    <h1>Create Data Pengerajin</h1>
+    <h1>Create Data Pengrajin</h1>
 @stop
 
 @section('content')
@@ -23,7 +23,7 @@
                 <input type="text" class="form-control" id="nama_pengerajin" name="nama_pengerajin"
                     placeholder="Masukkan Nama Pengerajin" required>
             </div>
-            
+
             <!-- Jenis Kelamin -->
             <div class="mb-3">
                 <label class="form-label d-block">Jenis Kelamin</label>

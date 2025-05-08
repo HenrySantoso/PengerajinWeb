@@ -46,7 +46,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="{{ route('guest-index') }}" class="logo">
-                            <img src="{{ asset('assets/images/jogja.png') }}" height="80px" alt="logo">
+                            <p style="color: black; font-size: 24px; font-weight: normal; text-transform: none; margin-top: 35px;">TekoPerakku</p>
                         </a>
 
                         <!-- ***** Menu Start ***** -->
@@ -92,7 +92,7 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="{{ asset('assets/images/jogja.png') }}" alt="Logo" height="80px">
+                            <p style="color: black; font-size: 24px; font-weight: normal; text-transform: none; background-color: white; padding: 4px 8px;">TekoPerakku</p>
                         </div>
                         <ul>
                             <li><a href="#">59GX+957, JL. Watu Gateng, Prenggan, Kec. Kotagede, Kota Yogyakarta,
